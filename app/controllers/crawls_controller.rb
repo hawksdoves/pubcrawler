@@ -1,7 +1,9 @@
 class CrawlsController < ApplicationController
 
   def index
-    render :index
+    # @pubs = yelp_query
+    render json: yelp_query
+    # render :index
   end
 
   def new
