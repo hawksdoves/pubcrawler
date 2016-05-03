@@ -45,6 +45,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'shoulda'
   gem 'capybara'
+  gem 'rspec-collection_matchers'
 end
 
 group :development do
