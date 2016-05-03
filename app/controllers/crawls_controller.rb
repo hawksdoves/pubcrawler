@@ -6,7 +6,7 @@ class CrawlsController < ApplicationController
   end
 
   def show
-
+    @crawl = Crawl.find params[:id]
   end
 
   def new

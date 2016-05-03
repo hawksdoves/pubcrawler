@@ -1,7 +1,7 @@
 <h1>All Crawls</h1>
 
 <% @crawls.each do |crawl| %>
-  <%= crawl.name %>
+  <%= link_to crawl.name, crawl_path(crawl) %>
 <% end %>
 
 <%= link_to 'New Crawl', new_crawl_path %>
