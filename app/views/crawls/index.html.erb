@@ -1,13 +1,5 @@
-<h1>Your Pub!</h1>
+<h1>All Crawls</h1>
 
-<p class='pub-name'>
-  <%= @pub.name %>
-</p>
-
-<ul class='pub-address'>
-  <% @pub.location.display_address.each do |line| %>
-    <li>
-      <%= line %>
-    </li>
-  <% end %>
-</ul>
+<% @crawls.each do |crawl| %>
+  <%= crawl.name %>
+<% end %>
