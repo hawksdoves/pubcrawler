@@ -1,9 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Crawl, type: :model do
+  let(:array) { [] }
+  let(:location) { double(:String) }
+  let(:client) { double(:yelp, search: "Hello World") }
 
   subject(:crawl) { described_class.new }
-  let(:array) { [] }
+
+  it{ is_expected.to have_many(:pubs) }
+
+  it 'passes location to yelp api' do
+    expect(client).to receive(:search).with('User Location', { term: 'bars and pubs' })
+    allow(Yelp).to receive(:client).and_return(client)
+    Crawl.yelp_query({ location: 'User Location' })
+  end
 
   it 'returns one pub' do
     expect(array).to receive(:sample)
@@ -11,6 +21,6 @@ RSpec.describe Crawl, type: :model do
   end
 
   it 'creates a new pub object' do
-    
+
   end
 end

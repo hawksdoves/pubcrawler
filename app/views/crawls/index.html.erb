@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Pubcrawler</title>
-  </head>
-  <body>
-    <h1>Welcome</h1>
-    <!-- <%= @pubs %> -->
-  </bod>
-</html>
+<h1>Your Pub!</h1>
+
+<p class='pub-name'>
+  <%= @pub.name %>
+</p>
+
+<ul class='pub-address'>
+  <% @pub.location.display_address.each do |line| %>
+    <li>
+      <%= line %>
+    </li>
+  <% end %>
+</ul>
