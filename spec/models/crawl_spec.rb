@@ -20,13 +20,13 @@ RSpec.describe Crawl, type: :model do
 
   context 'creating a new pub' do
     it 'makes a query to yelp api' do
-      expect(client).to receive(:search).with(postcode, { term: 'bars and pubs' })
-      Crawl.new_pub postcode
+      expect(client).to receive(:search).with(postcode, { term: 'bars and pubs', radius_filter: 800 })
+      Crawl.new_pubs postcode
     end
 
     it 'returns one pub near postcode with details from yelp' do
-      new_pub = Crawl.new_pub postcode
-      expect(new_pub.name).to eq details.name
+      new_pubs = Crawl.new_pubs postcode
+      expect(new_pubs.first.name).to eq details.name
     end
   end
 
