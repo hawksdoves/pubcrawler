@@ -6,6 +6,6 @@ class Crawl < ActiveRecord::Base
   end
 
   def self.yelp_query params
-    Yelp.client.search(params[:location], { term: 'bars and pubs' })
+    Yelp.client.search(params[:crawl][:start_postcode], { term: 'bars and pubs' })
   end
 end

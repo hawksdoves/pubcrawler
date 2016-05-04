@@ -16,6 +16,7 @@ class CrawlsController < ApplicationController
   def create
     @crawl = Crawl.new crawl_params
     if @crawl.save
+      @crawl.pubs << Pub.yelp_query(params)
       redirect_to crawl_path(@crawl)
     else
       render 'new'

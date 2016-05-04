@@ -20,7 +20,8 @@ RSpec.describe Crawl, type: :model do
     Crawl.pub_picker(array)
   end
 
-  it 'creates a new pub object' do
-
+  it 'creates a new pub record' do
+    #
   end
+
 end
