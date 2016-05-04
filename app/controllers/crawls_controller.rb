@@ -16,7 +16,7 @@ class CrawlsController < ApplicationController
   def create
     @crawl = Crawl.new crawl_params
     if @crawl.save
-      redirect_to crawls_path
+      redirect_to crawl_path(@crawl)
     else
       render 'new'
     end
