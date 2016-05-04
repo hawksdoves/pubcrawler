@@ -6,7 +6,7 @@ class Crawl < ActiveRecord::Base
   end
 
   def self.new_pub postcode
-    pubs = self.yelp_pubs_near postcode
+    pubs = self.yelp_pubs_near(postcode)
     pub = pubs.sample
     Pub.create(name: pub.name, location: pub.location.postal_code, address: pub.location.display_address)
   end

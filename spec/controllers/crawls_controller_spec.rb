@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe CrawlsController, type: :controller do
 
 	subject(:crawls_controller) { described_class.new }
-	# let(:params) { double(:parameters, require: require_method) }
 
 	it 'generates a new pub when new crawl created' do
 		expect(Crawl).to receive(:new_pub).and_return(Pub.new)

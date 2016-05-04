@@ -1,7 +1,6 @@
 class CrawlsController < ApplicationController
 
   def index
-    # @pub = Crawl.yelp_query(params).businesses.sample
     @crawls = Crawl.all
   end
 
@@ -26,6 +25,6 @@ class CrawlsController < ApplicationController
   private
 
   def crawl_params
-    params.require(:crawl).permit :name
+    params.require(:crawl).permit :name, :start_postcode
   end
 end
