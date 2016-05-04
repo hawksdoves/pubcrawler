@@ -12,7 +12,7 @@ RSpec.describe Crawl, type: :model do
   it 'passes location to yelp api' do
     expect(client).to receive(:search).with('User Location', { term: 'bars and pubs' })
     allow(Yelp).to receive(:client).and_return(client)
-    Crawl.yelp_query({ location: 'User Location' })
+    Crawl.yelp_query({ start_postcode: 'User Location' })
   end
 
   it 'returns one pub' do
