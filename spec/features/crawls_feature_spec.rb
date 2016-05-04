@@ -1,4 +1,4 @@
-feature 'Crawl' do
+feature 'Feature Spec: Crawl' do
   xscenario '#index displays a pub' do
     visit '/crawls?location=n16bn'
     expect(page.status_code).to eq 200
