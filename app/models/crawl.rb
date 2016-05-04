@@ -1,10 +1,6 @@
 class Crawl < ActiveRecord::Base
   has_many :pubs, dependent: :destroy
 
-  def self.pub_picker(array)
-    array.sample
-  end
-
   def self.new_pubs postcode
     pubs = self.yelp_pubs_near(postcode)
     pubs[0..8].map do |pub|
