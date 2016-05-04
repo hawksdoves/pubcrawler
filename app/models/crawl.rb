@@ -11,7 +11,6 @@ class Crawl < ActiveRecord::Base
     Pub.create(name: pub.name, location: pub.location.postal_code, address: pub.location.display_address)
   end
 
-
   private
 
   def self.yelp_pubs_near postcode

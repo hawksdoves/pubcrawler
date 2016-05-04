@@ -28,8 +28,4 @@ class CrawlsController < ApplicationController
   def crawl_params
     params.require(:crawl).permit :name
   end
-
-  # def new
-  #   render json: yelp_query
-  # end
 end
