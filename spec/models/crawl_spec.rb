@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Crawl, type: :model do
-  let(:array) { [] }
   let(:location) { double :String }
   let(:location_details) { double(:location_details, postal_code: 'abc123', display_address: ['Line 1', 'Line 2', 'Line 3']) }
   let(:details) { double(:details, name: 'The Pub Name', id: 'pub1', location: location_details) }
@@ -29,6 +28,4 @@ RSpec.describe Crawl, type: :model do
       expect(new_pubs.first.name).to eq details.name
     end
   end
-
-
 end
