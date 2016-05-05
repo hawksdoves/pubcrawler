@@ -1,12 +1,23 @@
 class Crawl < ActiveRecord::Base
-  has_many :pubs, dependent: :destroy
   has_many :pub_challenges, dependent: :destroy
+  has_many :pubs_on_crawls, dependent: :destroy
 
   def self.new_pubs postcode
     pubs = self.yelp_pubs_near(postcode)
-    pubs[0..8].map do |pub|
-      Pub.create(name: pub.name, location: pub.location.postal_code, address: pub.location.display_address)
+    pubs.shuffle[0..8].map.with_index do |pub, index|
+	    default_show = (index == 0) ?  true : false
+
+			current_pub = Pub.find_by(name: pub.name, location: pub.location.postal_code) || Pub.create(name: pub.name,
+																                location: pub.location.postal_code,
+																                address: pub.location.display_address,
+																                longitude: pub.location.coordinate.longitude,
+																                latitude: pub.location.coordinate.latitude)
+
+
+			PubsOnCrawl.create(pub_id: current_pub.id, visible: default_show )
     end
+
+
   end
 
   private

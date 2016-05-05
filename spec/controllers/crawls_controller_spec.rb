@@ -13,10 +13,10 @@ RSpec.describe CrawlsController, type: :controller do
   end
 
   context 'when creating a new crawl' do
-    # it 'gets a new set of pubs' do
-    #   expect(Crawl).to receive(:new_pubs).and_return([Pub.new, Pub.new])
-    #   post :create, crawl: { "name"=>"New Crawl", "start_postcode"=>"post_code"}
-    # end
+    it 'gets a new set of pubs' do
+      expect(Crawl).to receive(:new_pubs).and_return([PubsOnCrawl.new])
+      post :create, crawl: { "name"=>"New Crawl", "start_postcode"=>"post_code"}
+    end
 
     it 'gets a new of challenge' do
       expect(PubChallenge).to receive(:get_challenges).and_return( [challenge] )
