@@ -1,5 +1,5 @@
 feature 'Feature Spec: Crawl' do
-  scenario 'user can create a new crawl' do
+  scenario 'user can create a new crawl which displays the first place' do
     visit '/crawls'
     click_link('New Crawl')
     expect(page.status_code).to eq 200
@@ -8,7 +8,8 @@ feature 'Feature Spec: Crawl' do
     click_button('Create')
     expect(page.status_code).to eq 200
     expect(page).to have_content('new_crawl')
-    expect(page).to have_content('Pub Name:')
+    expect(page).to have_content('Pub Name:', count: 1)
     expect(page).to have_content('Pub Address:')
   end
+
 end
