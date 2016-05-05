@@ -1,7 +1,6 @@
 class CrawlsController < ApplicationController
 
   def index
-    # @pub = Crawl.yelp_query(params).businesses.sample
     @crawls = Crawl.all
   end
 
@@ -14,10 +13,10 @@ class CrawlsController < ApplicationController
   end
 
   def create
-    @crawl = Crawl.new crawl_params
-    if @crawl.save
-      @crawl.pubs << Pub.yelp_query(params)
-      redirect_to crawl_path(@crawl)
+    crawl = Crawl.new crawl_params
+    if crawl.save
+      crawl.pubs << Crawl.new_pubs(crawl.start_postcode)
+      redirect_to crawl_path(crawl)
     else
       render 'new'
     end
@@ -26,10 +25,6 @@ class CrawlsController < ApplicationController
   private
 
   def crawl_params
-    params.require(:crawl).permit :name
+    params.require(:crawl).permit :name, :start_postcode
   end
-
-  # def new
-  #   render json: yelp_query
-  # end
 end

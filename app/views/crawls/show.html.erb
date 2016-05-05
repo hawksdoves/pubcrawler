@@ -1,1 +1,23 @@
-new_crawl
+<%= @crawl.name %>
+
+<h1>Your Pubs!</h1>
+
+<ul>
+  <% @crawl.pubs.each do |pub| %>
+    <% if pub.show %>
+      <li class="pub-name">
+        <label for="pub-name">Pub Name:</label>
+        <%= pub.name %>
+      </li>
+
+      <label for="pub-address">Pub Address:</label>
+      <% pub.address.each do |line| %>
+        <li class="pub-address"><%= line %></li>
+      <% end %>
+      <form method="post" action="/pubs/<%= pub.id %>">
+        <input type="hidden" name="_method" value="put">
+        <button type="Submit">Check in </button>
+      </form>
+    <% end %>
+  <% end %>
+</Ul>
