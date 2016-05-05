@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504144150) do
+ActiveRecord::Schema.define(version: 20160505130004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "name"
+    t.text   "details"
+    t.time   "time_allocation"
+  end
 
   create_table "crawls", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -22,6 +28,14 @@ ActiveRecord::Schema.define(version: 20160504144150) do
     t.string   "name"
     t.string   "start_postcode"
   end
+
+  create_table "pub_challenges", force: :cascade do |t|
+    t.integer "challenge_id"
+    t.integer "pub_id"
+  end
+
+  add_index "pub_challenges", ["challenge_id"], name: "index_pub_challenges_on_challenge_id", using: :btree
+  add_index "pub_challenges", ["pub_id"], name: "index_pub_challenges_on_pub_id", using: :btree
 
   create_table "pubs", force: :cascade do |t|
     t.string   "name"
@@ -34,5 +48,7 @@ ActiveRecord::Schema.define(version: 20160504144150) do
 
   add_index "pubs", ["crawl_id"], name: "index_pubs_on_crawl_id", using: :btree
 
+  add_foreign_key "pub_challenges", "challenges"
+  add_foreign_key "pub_challenges", "pubs"
   add_foreign_key "pubs", "crawls"
 end
