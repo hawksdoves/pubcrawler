@@ -9,7 +9,7 @@ RSpec.describe CrawlsController, type: :controller do
   subject(:crawls_controller) { described_class.new }
 
   before do
-    allow(Crawl).to receive(:new_pubs).and_return([Pub.new, Pub.new])
+    allow(Crawl).to receive(:new_pubs).and_return([PubsOnCrawl.new])
   end
 
   context 'when creating a new crawl' do
