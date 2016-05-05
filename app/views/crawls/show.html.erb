@@ -6,7 +6,7 @@
   <% @crawl.pubs_on_crawls.each do |venue| %>
     <% if venue.visible %>
       <li class="pub-name">
-        <label for="pub-name">Pub Name:</label>
+        <label for="pub-name" class="pub">Pub Name:</label>
         <%= venue.pub.name %>
       </li>
 
@@ -14,10 +14,12 @@
       <% venue.pub.address.each do |line| %>
         <li class="pub-address"><%= line %></li>
       <% end %>
-      <form method="post" action="/pubs_on_crawl/<%= venue.id %>">
-        <input type="hidden" name="_method" value="put">
-        <button type="Submit">Check in </button>
-      </form>
+      <% if !venue.checkin %>
+        <form method="post" action="/pubs_on_crawl/<%= venue.id %>">
+          <input type="hidden" name="_method" value="put">
+          <button type="Submit">Check in</button>
+        </form>
+      <% end %>
     <% end %>
   <% end %>
 </Ul>
