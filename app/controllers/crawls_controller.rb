@@ -15,7 +15,7 @@ class CrawlsController < ApplicationController
   def create
     crawl = Crawl.new crawl_params
     if crawl.save
-      crawl.pubs << Crawl.new_pubs(crawl.start_postcode)
+      crawl.pubs_on_crawls << Crawl.new_pubs(crawl.start_postcode)
       redirect_to crawl_path(crawl)
     else
       render 'new'

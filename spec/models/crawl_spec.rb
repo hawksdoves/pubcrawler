@@ -13,7 +13,7 @@ RSpec.describe Crawl, type: :model do
 
   subject(:crawl) { described_class.new }
 
-  it{ is_expected.to have_many(:pubs) }
+  it{ is_expected.to have_many(:pubs_on_crawls) }
 
   before do
     allow(Yelp).to receive(:client).and_return(client)
@@ -37,7 +37,7 @@ RSpec.describe Crawl, type: :model do
 
     it 'first pub has show true' do
       new_pubs = Crawl.new_pubs postcode
-      expect(new_pubs.first.show).to eq true
+      expect(new_pubs.first.visible).to eq true
     end
 
   end
