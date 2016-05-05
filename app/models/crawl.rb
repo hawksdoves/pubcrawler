@@ -3,8 +3,24 @@ class Crawl < ActiveRecord::Base
 
   def self.new_pubs postcode
     pubs = self.yelp_pubs_near(postcode)
-    pubs[0..8].map do |pub|
-      Pub.create(name: pub.name, location: pub.location.postal_code, address: pub.location.display_address)
+    pubs.shuffle[0..8].map do |pub,index|
+      if index == 0
+        Pub.create(name: pub.name,
+                  location: pub.location.postal_code,
+                  address: pub.location.display_address,
+                  longitude: pub.location.coordinate.longitude,
+                  latitude: pub.location.coordinate.latitude,
+                  checked_in: false,
+                  show: true )
+      else
+      Pub.create(name: pub.name,
+                location: pub.location.postal_code,
+                address: pub.location.display_address,
+                longitude: pub.location.coordinate.longitude,
+                latitude: pub.location.coordinate.latitude,
+                checked_in: false,
+                show: false )
+      end
     end
   end
 

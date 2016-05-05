@@ -3,15 +3,27 @@
 <h1>Your Pubs!</h1>
 
 <ul>
-  <% @crawl.pubs.each do |pub| %>
-    <li class='pub-name'>
-      <label for="pub-name">Pub Name:</label>
-      <%= pub.name %>
-    </li>
+  <li class='pub-name'>
+    <label for="pub-name">Pub Name:</label>
+    <%=  @crawl.pubs[0].name %>
+  </li>
 
-    <label for="pub-address">Pub Address:</label>
-    <% pub.address.each do |line| %>
-      <li class='pub-address'><%= line %></li>
+  <label for="pub-address">Pub Address:</label>
+  <% @crawl.pubs[0].address.each do |line| %>
+    <li class='pub-address'><%= line %></li>
+  <% end %>
+  
+  <% @crawl.pubs[1..(@crawl.pubs.length)].each do |pub| %>
+    <% if pub.checked_in %>
+      <li class='pub-name'>
+        <label for="pub-name">Pub Name:</label>
+        <%= pub.name %>
+      </li>
+
+      <label for="pub-address">Pub Address:</label>
+      <% pub.address.each do |line| %>
+        <li class='pub-address'><%= line %></li>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
