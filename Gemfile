@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # https://github.com/Yelp/yelp-rails-example
 gem 'yelp'
 
+gem 'json'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,6 +43,11 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'shoulda'
+  gem 'capybara'
+  gem 'rspec-collection_matchers'
+  gem 'database_cleaner'
+
 end
 
 group :development do

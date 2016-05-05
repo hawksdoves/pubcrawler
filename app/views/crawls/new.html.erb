@@ -1,0 +1,7 @@
+<%= form_for @crawl, url: {action: "create"}, html: {class: "crawl-form"} do |f| %>
+  <%= f.label :name_your_crawl %>:
+  <%= f.text_field :name %>
+  <%= f.label :start_postcode %>:
+  <%= f.text_field :start_postcode %>
+  <%= f.submit "Create" %>
+<% end %>
