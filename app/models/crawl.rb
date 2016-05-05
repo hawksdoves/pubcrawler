@@ -9,9 +9,10 @@ class Crawl < ActiveRecord::Base
                 location: pub.location.postal_code,
                 address: pub.location.display_address,
                 longitude: pub.location.coordinate.longitude,
-                latitude: pub.location.coordinate.latitude,
-                checked_in: false,
-                show: default_show )
+                latitude: pub.location.coordinate.latitude
+                # ,checked_in: false,
+                # show: default_show
+                )
     end
   end
 
