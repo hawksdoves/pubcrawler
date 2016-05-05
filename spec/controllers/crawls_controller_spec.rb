@@ -19,7 +19,7 @@ RSpec.describe CrawlsController, type: :controller do
     # end
 
     it 'gets a new of challenge' do
-      expect(PubChallenge).to receive(:get_challenge).and_return( challenge )
+      expect(PubChallenge).to receive(:get_challenges).and_return( [challenge] )
       post :create, crawl: { "name"=>crawl_name, "start_postcode"=>postcode}
     end
   end

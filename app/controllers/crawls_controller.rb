@@ -16,6 +16,7 @@ class CrawlsController < ApplicationController
     crawl = Crawl.new crawl_params
     if crawl.save
       crawl.pubs << Crawl.new_pubs(crawl.start_postcode)
+      PubChallenge.get_challenges
       redirect_to crawl_path(crawl)
     else
       render 'new'
