@@ -27,7 +27,7 @@ RSpec.describe Crawl, type: :model do
 
     it 'returns one pub near postcode with details from yelp' do
       new_pubs = Crawl.new_pubs postcode
-      expect(new_pubs.first.name).to eq details.name
+      expect(new_pubs.first.pub.name).to eq details.name
     end
 
     it 'returns an array of pubs' do
