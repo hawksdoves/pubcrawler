@@ -22,8 +22,7 @@ feature 'Feature Spec: Crawl' do
     expect(page.status_code).to eq 200
     click_button('Check in')
     expect(page.status_code).to eq 200
-    expect(page).to have_content('Pub Name:', count: 2)
-    # expect(page).to have_content('Pub Address:')
+    expect(page).to match_exactly(2, ".pub")
   end
 
 end

@@ -9,6 +9,7 @@ RSpec.describe PubsOnCrawl, type: :model do
 
     	it 'changes checkin attribute' do
     		pub = PubsOnCrawl.create
+            pub1 = PubsOnCrawl.create
     		time = Time.new(2000,01,01,04,05)
     		allow(Time).to receive(:now).and_return(time)
     		PubsOnCrawl.find_and_update_status(pub.id)
