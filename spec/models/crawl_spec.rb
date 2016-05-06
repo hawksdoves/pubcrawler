@@ -20,25 +20,34 @@ RSpec.describe Crawl, type: :model do
     allow(Yelp).to receive(:client).and_return(client)
   end
 
-  context 'creating a new crawl' do
-    it 'makes a query to yelp api' do
-      expect(client).to receive(:search).with(postcode, { term: 'bars and pubs', radius_filter: 800 })
-      Crawl.new_pubs postcode
+  it 'changes visibility attribute' do
+    round = Round.create
+    Round.create
+    Round.reveal_next round.id
+    expect(Round.last.visible).to eq true
+  end
+
+  describe '#get_' do
+    it 'challenges returns an array of challenges' do
+      challenge = Challenge.create
+      expect(Crawl.get_challenges).to include challenge
     end
 
-    it 'returns one pub near postcode with details from yelp' do
-      new_pubs = Crawl.new_pubs postcode
-      expect(new_pubs.first.pub.name).to eq details.name
-    end
+    context 'pubs' do
+      it 'returns an array of pubs' do
+        pubs = Crawl.get_pubs postcode
+        expect(pubs.length).to eq 2
+      end
 
-    it 'returns an array of pubs' do
-      new_pubs = Crawl.new_pubs postcode
-      expect(new_pubs.length).to eq 2
-    end
+      it 'makes a query to yelp api' do
+        expect(client).to receive(:search).with(postcode, { term: 'bars and pubs', radius_filter: 800 })
+        Crawl.get_pubs postcode
+      end
 
-    it 'first pub has show true' do
-      new_pubs = Crawl.new_pubs postcode
-      expect(new_pubs.first.visible).to eq true
+      it 'returns one pub near postcode with details from yelp' do
+        pubs = Crawl.get_pubs postcode
+        expect(pubs.first.name).to eq details.name
+      end
     end
   end
 end

@@ -17,10 +17,15 @@ RSpec.describe CrawlsController, type: :controller do
       post :create, crawl: { 'name'=>'New Crawl', 'start_postcode'=>'post_code'}
     end
 
-    it 'gets a new of challenge' do
+    it 'gets a new challenge' do
       Challenge.create
       expect(Round).to receive(:get_challenges).and_return( [challenge] )
       post :create, crawl: { 'name': crawl_name, 'start_postcode': postcode}
+    end
+
+    it 'first round is always visible' do
+      Round.create
+      expect(Round.first.visible).to eq true
     end
   end
 end

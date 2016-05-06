@@ -3,6 +3,7 @@ skip_before_filter :verify_authenticity_token, :only => :create
 
 	def update
 		Round.log_time params[:id]
+		Round.reveal_next params[:id]
 		round = Round.find params[:id]
 		redirect_to crawl_path round.crawl
   end

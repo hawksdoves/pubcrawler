@@ -5,10 +5,9 @@ class Round < ActiveRecord::Base
 
 	def self.log_time id
 		Round.update(id, checkin: Time.now)
-		# Round.update(id.to_i+1, visible: true)
 	end
 
-	def self.get_challenges
-    Challenge.all.shuffle[0..8]
-  end
+	def self.reveal_next id
+		Round.update(id.to_i+1, visible: true)
+	end
 end

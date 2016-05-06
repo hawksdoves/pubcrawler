@@ -3,19 +3,19 @@
 <h1>Your Pubs!</h1>
 
 <ul>
-  <% @crawl.crawl_pubs.each do |venue| %>
-    <% if venue.visible %>
+  <% @crawl.rounds.each do |round| %>
+    <% if round.visible %>
       <li class="pub-name">
         <label for="pub-name" class="pub">Pub Name:</label>
-        <%= venue.pub.name %>
+        <%= round.pub.name %>
       </li>
 
       <label for="pub-address">Pub Address:</label>
-      <% venue.pub.address.each do |line| %>
+      <% round.pub.address.each do |line| %>
         <li class="pub-address"><%= line %></li>
       <% end %>
-      <% if !venue.checkin %>
-        <form method="post" action="/pubs_on_crawl/<%= venue.id %>">
+      <% if !round.checkin %>
+        <form method="post" action="/rounds/<%= round.id %>">
           <input type="hidden" name="_method" value="put">
           <button type="Submit">Check in</button>
         </form>

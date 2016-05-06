@@ -3,12 +3,8 @@ class Crawl < ActiveRecord::Base
   has_many :pubs, through: :rounds
   has_many :challenges, through: :rounds
 
-  def self.new_pubs postcode
-    pubs = self.yelp_pubs_near(postcode)
-    pubs.shuffle[0..8].map.with_index do |pub, index|
-	    default_show = (index == 0) ? true : false
-
-			current_pub =
+  def self.get_pubs postcode
+    self.yelp_pubs_near(postcode).shuffle[0..8].map do |pub|
         Pub.find_by(
                       name: pub.name,
                       location: pub.location.postal_code
@@ -20,9 +16,11 @@ class Crawl < ActiveRecord::Base
                     longitude: pub.location.coordinate.longitude,
                     latitude: pub.location.coordinate.latitude
                   )
-
-			Round.create(pub_id: current_pub.id, visible: default_show)
     end
+  end
+
+  def self.get_challenges
+    Challenge.all.shuffle[0..8]
   end
 
   private
