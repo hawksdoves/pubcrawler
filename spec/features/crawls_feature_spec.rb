@@ -1,5 +1,6 @@
 feature 'Feature Spec: Crawl' do
   scenario 'user can create a new crawl which displays the first place' do
+    20.times { Challenge.create }
     visit '/crawls'
     click_link('New Crawl')
     expect(page.status_code).to eq 200
