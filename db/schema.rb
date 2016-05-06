@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506102106) do
+ActiveRecord::Schema.define(version: 20160506130812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,24 +21,6 @@ ActiveRecord::Schema.define(version: 20160506102106) do
     t.text   "details"
     t.time   "time_allocation"
   end
-
-  create_table "crawl_challenges", force: :cascade do |t|
-    t.integer "challenge_id"
-    t.integer "crawl_id"
-  end
-
-  add_index "crawl_challenges", ["challenge_id"], name: "index_crawl_challenges_on_challenge_id", using: :btree
-  add_index "crawl_challenges", ["crawl_id"], name: "index_crawl_challenges_on_crawl_id", using: :btree
-
-  create_table "crawl_pubs", force: :cascade do |t|
-    t.time    "checkin"
-    t.boolean "visible"
-    t.integer "pub_id"
-    t.integer "crawl_id"
-  end
-
-  add_index "crawl_pubs", ["crawl_id"], name: "index_crawl_pubs_on_crawl_id", using: :btree
-  add_index "crawl_pubs", ["pub_id"], name: "index_crawl_pubs_on_pub_id", using: :btree
 
   create_table "crawls", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -57,8 +39,19 @@ ActiveRecord::Schema.define(version: 20160506102106) do
     t.decimal  "latitude",   precision: 15, scale: 12
   end
 
-  add_foreign_key "crawl_challenges", "challenges"
-  add_foreign_key "crawl_challenges", "crawls"
-  add_foreign_key "crawl_pubs", "crawls"
-  add_foreign_key "crawl_pubs", "pubs"
+  create_table "rounds", force: :cascade do |t|
+    t.time    "checkin"
+    t.boolean "visible"
+    t.integer "pub_id"
+    t.integer "crawl_id"
+    t.integer "challenge_id"
+  end
+
+  add_index "rounds", ["challenge_id"], name: "index_rounds_on_challenge_id", using: :btree
+  add_index "rounds", ["crawl_id"], name: "index_rounds_on_crawl_id", using: :btree
+  add_index "rounds", ["pub_id"], name: "index_rounds_on_pub_id", using: :btree
+
+  add_foreign_key "rounds", "challenges"
+  add_foreign_key "rounds", "crawls"
+  add_foreign_key "rounds", "pubs"
 end
