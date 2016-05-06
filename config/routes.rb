@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :crawls
   resources :challenges
-  resources :pubs_on_crawl, only: :update
+  resources :crawl_pubs, only: :update
 end

@@ -3,7 +3,7 @@
 <h1>Your Pubs!</h1>
 
 <ul>
-  <% @crawl.pubs_on_crawls.each do |venue| %>
+  <% @crawl.crawl_pubs.each do |venue| %>
     <% if venue.visible %>
       <li class="pub-name">
         <label for="pub-name" class="pub">Pub Name:</label>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506092634) do
+ActiveRecord::Schema.define(version: 20160506102106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160506092634) do
   add_index "crawl_challenges", ["challenge_id"], name: "index_crawl_challenges_on_challenge_id", using: :btree
   add_index "crawl_challenges", ["crawl_id"], name: "index_crawl_challenges_on_crawl_id", using: :btree
 
+  create_table "crawl_pubs", force: :cascade do |t|
+    t.time    "checkin"
+    t.boolean "visible"
+    t.integer "pub_id"
+    t.integer "crawl_id"
+  end
+
+  add_index "crawl_pubs", ["crawl_id"], name: "index_crawl_pubs_on_crawl_id", using: :btree
+  add_index "crawl_pubs", ["pub_id"], name: "index_crawl_pubs_on_pub_id", using: :btree
+
   create_table "crawls", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -47,18 +57,8 @@ ActiveRecord::Schema.define(version: 20160506092634) do
     t.decimal  "latitude",   precision: 15, scale: 12
   end
 
-  create_table "pubs_on_crawls", force: :cascade do |t|
-    t.time    "checkin"
-    t.boolean "visible"
-    t.integer "pub_id"
-    t.integer "crawl_id"
-  end
-
-  add_index "pubs_on_crawls", ["crawl_id"], name: "index_pubs_on_crawls_on_crawl_id", using: :btree
-  add_index "pubs_on_crawls", ["pub_id"], name: "index_pubs_on_crawls_on_pub_id", using: :btree
-
   add_foreign_key "crawl_challenges", "challenges"
   add_foreign_key "crawl_challenges", "crawls"
-  add_foreign_key "pubs_on_crawls", "crawls"
-  add_foreign_key "pubs_on_crawls", "pubs"
+  add_foreign_key "crawl_pubs", "crawls"
+  add_foreign_key "crawl_pubs", "pubs"
 end

@@ -1,5 +1,4 @@
 class CrawlsController < ApplicationController
-
   def index
     @crawls = Crawl.all
   end
@@ -15,7 +14,7 @@ class CrawlsController < ApplicationController
   def create
     crawl = Crawl.new crawl_params
     if crawl.save
-      crawl.pubs_on_crawls << Crawl.new_pubs(crawl.start_postcode)
+      crawl.crawl_pubs << Crawl.new_pubs(crawl.start_postcode)
 
       CrawlChallenge.get_challenges.each_with_index do | challenge, index |
         crawl.crawl_challenges << CrawlChallenge.create( challenge_id: challenge.id)
