@@ -8,6 +8,7 @@ class Round < ActiveRecord::Base
 	end
 
 	def self.reveal_next id
+		# need to be for the same id - not next. business vs visual
 		Round.update(id.to_i+1, visible: true)
 	end
 end

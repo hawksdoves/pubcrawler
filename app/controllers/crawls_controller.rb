@@ -15,7 +15,6 @@ class CrawlsController < ApplicationController
   def create
     crawl = Crawl.new crawl_params
     if crawl.save
-
       pubs = Crawl.get_pubs(crawl.start_postcode)
       challenges = Crawl.get_challenges
 

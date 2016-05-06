@@ -1,11 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe RoundsController, type: :controller do
-	it 'updates proceeding round visibility when current round is checked into' do
-		crawl = Crawl.create
-		round = Round.create
+
+  let(:crawl) { Crawl.create }
+  let(:round) { Round.create }
+
+	before do
+		allow(Round).to receive(:log_time)
+		allow(Round).to receive(:reveal_next)
+	end
+
+	it 'updates round visibility when checked into' do
 		crawl.rounds << round
 		expect(Round).to receive(:log_time)
+		post :update, id: round.id
+	end
+
+	it 'updates checkin time' do
+		crawl.rounds << round
+		expect(Round).to receive(:reveal_next)
 		post :update, id: round.id
 	end
 end
