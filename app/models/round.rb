@@ -3,9 +3,9 @@ class Round < ActiveRecord::Base
 	belongs_to :crawl
 	belongs_to :challenge
 
-	def self.checkin id
-			Round.update(id, checkin: Time.now)
-			Round.update(id.to_i+1, visible: true)
+	def self.log_time id
+		Round.update(id, checkin: Time.now)
+		# Round.update(id.to_i+1, visible: true)
 	end
 
 	def self.get_challenges
