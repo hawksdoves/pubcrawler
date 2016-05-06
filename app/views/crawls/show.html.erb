@@ -3,15 +3,23 @@
 <h1>Your Pubs!</h1>
 
 <ul>
-  <% @crawl.pubs.each do |pub| %>
-    <li class='pub-name'>
-      <label for="pub-name">Pub Name:</label>
-      <%= pub.name %>
-    </li>
+  <% @crawl.rounds.each do |round| %>
+    <% if round.visible %>
+      <li class="pub-name">
+        <label for="pub-name" class="pub">Pub Name:</label>
+        <%= round.pub.name %>
+      </li>
 
-    <label for="pub-address">Pub Address:</label>
-    <% pub.address.each do |line| %>
-      <li class='pub-address'><%= line %></li>
+      <label for="pub-address">Pub Address:</label>
+      <% round.pub.address.each do |line| %>
+        <li class="pub-address"><%= line %></li>
+      <% end %>
+      <% if !round.checkin %>
+        <form method="post" action="/rounds/<%= round.id %>">
+          <input type="hidden" name="_method" value="put">
+          <button type="Submit">Check in</button>
+        </form>
+      <% end %>
     <% end %>
   <% end %>
-</ul>
+</Ul>

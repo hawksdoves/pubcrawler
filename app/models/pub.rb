@@ -1,3 +1,3 @@
 class Pub < ActiveRecord::Base
-  belongs_to :crawl
+  has_many :rounds
 end

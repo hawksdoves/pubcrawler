@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504144150) do
+ActiveRecord::Schema.define(version: 20160506130812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "name"
+    t.text   "details"
+    t.time   "time_allocation"
+  end
 
   create_table "crawls", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -26,13 +32,26 @@ ActiveRecord::Schema.define(version: 20160504144150) do
   create_table "pubs", force: :cascade do |t|
     t.string   "name"
     t.text     "location"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "crawl_id"
-    t.string   "address",    default: [],              array: true
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "address",                              default: [],              array: true
+    t.decimal  "longitude",  precision: 15, scale: 12
+    t.decimal  "latitude",   precision: 15, scale: 12
   end
 
-  add_index "pubs", ["crawl_id"], name: "index_pubs_on_crawl_id", using: :btree
+  create_table "rounds", force: :cascade do |t|
+    t.time    "checkin"
+    t.boolean "visible"
+    t.integer "pub_id"
+    t.integer "crawl_id"
+    t.integer "challenge_id"
+  end
 
-  add_foreign_key "pubs", "crawls"
+  add_index "rounds", ["challenge_id"], name: "index_rounds_on_challenge_id", using: :btree
+  add_index "rounds", ["crawl_id"], name: "index_rounds_on_crawl_id", using: :btree
+  add_index "rounds", ["pub_id"], name: "index_rounds_on_pub_id", using: :btree
+
+  add_foreign_key "rounds", "challenges"
+  add_foreign_key "rounds", "crawls"
+  add_foreign_key "rounds", "pubs"
 end
