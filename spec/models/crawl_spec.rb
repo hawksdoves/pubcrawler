@@ -12,8 +12,9 @@ RSpec.describe Crawl, type: :model do
 
   subject(:crawl) { described_class.new }
 
-  it{ is_expected.to have_many(:crawl_challenges) }
-  it{ is_expected.to have_many(:crawl_pubs) }
+  it{ is_expected.to have_many(:rounds) }
+  it{ is_expected.to have_many(:challenges) }
+  it{ is_expected.to have_many(:pubs) }
 
   before do
     allow(Yelp).to receive(:client).and_return(client)

@@ -1,9 +1,7 @@
 class Crawl < ActiveRecord::Base
-  has_many :crawl_challenges
-  has_many :challenges, through: :crawl_challenges, dependent: :destroy
-  has_many :crawl_pubs
-  has_many :pubs, through: :crawl_pubs, dependent: :destroy
-
+  has_many :rounds
+  has_many :pubs, through: :rounds
+  has_many :challenges, through: :rounds
 
   def self.new_pubs postcode
     pubs = self.yelp_pubs_near(postcode)
@@ -23,7 +21,7 @@ class Crawl < ActiveRecord::Base
                     latitude: pub.location.coordinate.latitude
                   )
 
-			CrawlPub.create(pub_id: current_pub.id, visible: default_show)
+			Round.create(pub_id: current_pub.id, visible: default_show)
     end
   end
 
