@@ -1,11 +1,12 @@
 class CrawlsController < ApplicationController
   def index
     @crawls = Crawl.all
+    render json: Crawl.all
   end
 
   def show
     @crawl = Crawl.find params[:id]
-    # render json: Crawl.find(params[:id]), include: [:pubs, :rounds, :challenges]
+    render json: Crawl.find(params[:id]), include: [:pubs, :rounds, :challenges]
   end
 
   def new
