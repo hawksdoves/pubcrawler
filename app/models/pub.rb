@@ -1,3 +1,4 @@
 class Pub < ActiveRecord::Base
-  has_many :pub_challenges, dependent: :destroy
+  has_many :crawl_pubs
+  has_many :crawls, through: :crawl_pubs, dependent: :destroy
 end

@@ -1,6 +1,9 @@
 class Crawl < ActiveRecord::Base
-  has_many :crawl_challenges, dependent: :destroy
-  has_many :crawl_pubs, dependent: :destroy
+  has_many :crawl_challenges
+  has_many :challenges, through: :crawl_challenges, dependent: :destroy
+  has_many :crawl_pubs
+  has_many :pubs, through: :crawl_pubs, dependent: :destroy
+
 
   def self.new_pubs postcode
     pubs = self.yelp_pubs_near(postcode)

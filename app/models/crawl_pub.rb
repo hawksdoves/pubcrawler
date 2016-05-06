@@ -1,6 +1,6 @@
 class CrawlPub < ActiveRecord::Base
-	belongs_to :pub, dependent: :destroy
-	belongs_to :crawl, dependent: :destroy
+	belongs_to :pub
+	belongs_to :crawl
 
 	def self.checkin id
 			CrawlPub.update(id, checkin: Time.now)

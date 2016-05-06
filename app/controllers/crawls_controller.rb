@@ -4,7 +4,8 @@ class CrawlsController < ApplicationController
   end
 
   def show
-    @crawl = Crawl.find params[:id]
+    # @crawl = Crawl.find params[:id]
+    render json: Crawl.all.first, include: :pubs
   end
 
   def new
