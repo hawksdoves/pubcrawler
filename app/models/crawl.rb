@@ -1,5 +1,5 @@
 class Crawl < ActiveRecord::Base
-  has_many :pub_challenges, dependent: :destroy
+  has_many :crawl_challenges, dependent: :destroy
   has_many :pubs_on_crawls, dependent: :destroy
 
   def self.new_pubs postcode

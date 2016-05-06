@@ -15,12 +15,10 @@ class CrawlsController < ApplicationController
   def create
     crawl = Crawl.new crawl_params
     if crawl.save
-      pubs = Crawl.new_pubs(crawl.start_postcode)
-      crawl.pubs_on_crawls << pubs
+      crawl.pubs_on_crawls << Crawl.new_pubs(crawl.start_postcode)
 
-      PubChallenge.get_challenges.each_with_index do | challenge, index |
-        byebug
-        PubChallenge.create( challenge_id: challenge.id, pub_id: pubs[index].pub_id)
+      CrawlChallenge.get_challenges.each_with_index do | challenge, index |
+        crawl.crawl_challenges << CrawlChallenge.create( challenge_id: challenge.id)
       end
 
       redirect_to crawl_path(crawl)

@@ -1,3 +1,3 @@
 class Challenge < ActiveRecord::Base
-  has_many :pub_challenges, dependent: :destroy
+  has_many :crawl_challenges, dependent: :destroy
 end

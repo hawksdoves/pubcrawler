@@ -13,6 +13,11 @@ RSpec.describe Crawl, type: :model do
   subject(:crawl) { described_class.new }
 
   it{ is_expected.to have_many(:pubs_on_crawls) }
+  it{ is_expected.to have_many(:crawl_challenges) }
+
+  # need to change db table name
+  xit{ is_expected.not_to have_many(:pubs_on_crawls) }
+  xit{ is_expected.to have_many(:crawl_pubs) }
 
   before do
     allow(Yelp).to receive(:client).and_return(client)
