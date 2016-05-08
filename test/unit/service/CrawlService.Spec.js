@@ -9,7 +9,7 @@ describe('CrawlService', function(){
     CrawlService = _CrawlService_;
     httpBackend = $httpBackend;
     httpBackend
-      .whenPOST('http://localhost:3000/crawls/new', crawlData).respond({
+      .whenPOST('/crawls', crawlData).respond({
         name: 'NameOfNewCrawl'
       });
   }));

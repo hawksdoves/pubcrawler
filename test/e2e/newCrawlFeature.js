@@ -7,12 +7,7 @@ describe('Home page', function() {
     $('#crawl-start').sendKeys('n16bn');
     $('#crawl-create').click();
 
-
     expect(browser.getTitle()).toEqual('All Crawls');
-
-
-
-
 
     // var crawlData = $$('.crawls').first();
     // expect(crawlData.getText()).toMatch('new pub crawl');
