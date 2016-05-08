@@ -1,4 +1,4 @@
-angular.module('Pubcrawler', ['ionic', 'Pubcrawler.controllers'])
+var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

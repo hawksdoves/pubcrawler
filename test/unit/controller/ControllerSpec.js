@@ -1,5 +1,5 @@
 describe('PlaylistsCtrl', function() {
-  beforeEach(module('Pubcrawler'));
+  beforeEach(module('pubcrawlerApp'));
 
     var ctrl;
 
@@ -8,6 +8,6 @@ describe('PlaylistsCtrl', function() {
   }));
 
   it('should do this and that', function() {
-    expect(self.playlists[0].title).toEqual("Reggae");
+    expect(ctrl.playlists[0].title).toEqual("Reggae");
   });
 });
