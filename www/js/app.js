@@ -16,10 +16,16 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })
+
+  .state('app.newCrawl', {
+    url: '/crawls/new',
+    templateUrl: 'templates/crawls/new.html',
     controller: 'AppCtrl'
   })
 
