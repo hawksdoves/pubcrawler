@@ -8,9 +8,5 @@ describe('Home page', function() {
     $('#crawl-create').click();
 
     expect(browser.getTitle()).toEqual('All Crawls');
-
-    // var crawlData = $$('.crawls').first();
-    // expect(crawlData.getText()).toMatch('new pub crawl');
-    // expect(crawlData.getText()).toMatch('n16bn');
   });
 });
