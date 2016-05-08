@@ -5,7 +5,7 @@ exports.config = {
                 args: ['--disable-web-security']
             }
         },
-        baseUrl: 'http://localhost:8100',
+        baseUrl: 'http://localhost:8080',
         specs: [
             'e2e/**/*Feature.js'
         ],
