@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 20.times { |index| Challenge.create(name: "Challenge#{index+1}") }
+
+User.create(email: "testuser@email.com", password: "password", nickname: "IonicUser")

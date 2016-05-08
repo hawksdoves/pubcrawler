@@ -1,5 +1,22 @@
 class CrawlsController < ApplicationController
+
+  # before_action :authenticate_user!, only: [:index, :show]
+
   def index
+
+    # p "Current signed-in user: " + current_user.inspect
+    p
+    p request.env
+    p "AUTHORIZATION: " + request.env["HTTP_AUTHORIZATION"].inspect
+    p ""
+    p "Is user signed in?: " + user_signed_in?.inspect
+    p ""
+    p "TOKEN :" + request.env["HTTP_ACCESS_TOKEN"].inspect
+    p "UID " + request.env["HTTP_UID"].inspect
+    p "EXPIRY " + request.env["HTTP_EXPIRY"].inspect
+    p "CLIENT " + request.env["HTTP_CLIENT"].inspect
+    p "TOKEN TYPE " + request.env["HTTP_TOKEN_TYPE"].inspect
+
     @crawls = Crawl.all
     render json: @crawls
   end
