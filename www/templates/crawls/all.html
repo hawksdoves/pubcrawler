@@ -1,0 +1,11 @@
+<ion-view view-title="All Crawls">
+  <ion-content>
+    <h1>All Crawls</h1>
+    <ion-list>
+      <ion-item ng-repeat="crawl in ctrl.crawls" href="#/app/crawls/{{crawl.id}}">
+        {{crawl.name}}
+        {{crawl.start_postcode}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
