@@ -1,5 +1,5 @@
 describe('PlaylistsCtrl', function() {
-  beforeEach(module('Pubcrawler'));
+  beforeEach(module('pubcrawlerApp'));
 
     var ctrl;
 
