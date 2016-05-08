@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'yelp'
 
 gem 'json'
+gem 'rack-cors'
 
 
 # Use ActiveModel has_secure_password
