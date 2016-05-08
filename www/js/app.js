@@ -25,15 +25,20 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
 
   .state('app.newCrawl', {
     url: '/crawls/new',
-    templateUrl: 'templates/crawls/new.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/crawls/new.html',
+        controller: 'CrawlController as ctrl'
+
+      }
+    }
+  })
+
+  .state('app.crawls', {
+    url: '/crawls',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/crawls/all.html'
       }
     }
   })

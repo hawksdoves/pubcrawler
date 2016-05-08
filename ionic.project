@@ -1,4 +1,10 @@
 {
   "name": "pubcrawlerApp-ionic",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/crawls",
+      "proxyUrl": "http://localhost:3000/crawls"
+    }
+  ]
 }

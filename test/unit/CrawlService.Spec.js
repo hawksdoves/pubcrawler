@@ -15,7 +15,7 @@ describe('CrawlService', function(){
   }));
 
   it('should post crawl to api', function() {
-    CrawlService.addCrawl(crawlData)
+    CrawlService.createCrawl(crawlData)
       .then(function(response) {
         expect(response.data).toEqual({ name: 'NameOfNewCrawl' });
       });
