@@ -8,13 +8,15 @@ describe('CrawlService', function(){
   beforeEach( inject( function(_CrawlService_, $httpBackend) {
     CrawlService = _CrawlService_;
     httpBackend = $httpBackend;
-    httpBackend
-      .whenPOST('/crawls', crawlData).respond({
-        name: 'NameOfNewCrawl'
-      });
   }));
 
   it('should post crawl to api', function() {
+
+    httpBackend
+    .whenPOST('/crawls', crawlData).respond({
+      name: 'NameOfNewCrawl'
+    });
+    
     CrawlService.createCrawl(crawlData)
       .then(function(response) {
         expect(response.data).toEqual({ name: 'NameOfNewCrawl' });
