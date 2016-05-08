@@ -23,34 +23,22 @@ describe('CrawlsController', function() {
     describe('State', function() {
         it('should expose crawls to the view', function() {
           expect(ctrl.crawls).toBeDefined();
-          // We can use Angular helpers.
           expect(angular.isArray(ctrl.crawls)).toBe(true);
         });
     });
 
     describe('Aynchronous calls', function() {
-
       it('should call getCrawls on CrawlService', function() {
         ctrl.getCrawls();
         expect(CrawlService.getCrawls).toHaveBeenCalled();
         expect(CrawlService.getCrawls.calls.count()).toBe(1);
-
       });
 
       it('should do set change property of crawls to contain new data on success', function() {
         ctrl.getCrawls();
-        deferred.resolve(CrawlData); // Resolve the promise.
-        scope.$digest(); //Updates scope
-        // Check for state on success.
+        deferred.resolve(CrawlData);
+        scope.$digest();
         expect(ctrl.crawls).toBe(CrawlData);
       });
-
-      xit('should do something on error', function() {
-        deferred.reject(400); // Reject the promise.
-        scope.$digest();
-        // Check for state on error.
-        expect(ctrl.hasError).toBe(true);
-      });
-
     });
 });

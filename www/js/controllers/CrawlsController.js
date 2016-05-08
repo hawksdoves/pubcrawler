@@ -2,7 +2,7 @@ pubcrawlerApp.controller('CrawlsController', ['$scope','CrawlService', function(
 
   var self = this;
 
-  self.crawls = [];
+  self.crawls = [{name: "haha"}];
 
   self.getCrawls = function(){
     CrawlService.getCrawls().then(

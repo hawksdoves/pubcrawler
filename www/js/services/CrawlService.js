@@ -11,7 +11,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
   self.getCrawls = function() {
     return $http.get('http://localhost:3000/crawls')
     .success(function(data) {
-      return data;
+      return response.data;
     });
   };
 }]);

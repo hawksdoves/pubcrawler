@@ -15,8 +15,8 @@ describe('CrawlService', function(){
     it('should get crawls from api', function() {
       httpBackend.expectGET('http://localhost:3000/crawls/').respond(crawlsData);
       CrawlService.getCrawls()
-        .then(function(response) {
-          expect(response.data).toEqual(crawlsData);
+        .then(function(result) {
+          expect(result).toEqual(crawlsData);
         });
     });
   });

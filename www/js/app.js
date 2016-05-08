@@ -40,12 +40,12 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.crawls', {
+      url: '/crawls',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl as ctrl'
+          templateUrl: 'templates/crawls/all.html',
+          controller: 'CrawlsController as ctrl'
         }
       }
     })
@@ -59,5 +59,5 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
       }
     }
   });
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/crawls');
 });
