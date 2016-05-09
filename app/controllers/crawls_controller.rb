@@ -1,4 +1,7 @@
 class CrawlsController < ApplicationController
+
+  skip_before_action :verify_authenticity_token
+
   def index
     @crawls = Crawl.all
     render json: @crawls
@@ -29,7 +32,8 @@ class CrawlsController < ApplicationController
 
       crawl.rounds << rounds
 
-      redirect_to crawl_path(crawl)
+      render :json => { :status => "success", :message => crawl }, :status => 200
+      # redirect_to crawl_path(crawl)
     else
       render 'new'
     end
