@@ -1,18 +1,34 @@
 <ion-view view-title="Round">
   <ion-content>
-    <h2> {{ ctrl.pubDetails().name }} </h2>
-    <ion-list ng-repeat="line in ctrl.pubDetails().address">
-      <ion-item class="address">
-        {{ line }}
-      </ion-item>
-    </ion-list>
-    <section class='linktomap'>
-      Link to map will be here.
-    </section class="challenges">
-      <p>{{ ctrl.challengeDetails().name }}</p>
-      <p>{{ ctrl.challengeDetails().details }}</p>
-    <section class ='challenge'>
+
+    <section class ='pub'>
+      <div class="card">
+        <div class="item item-divider">
+          {{ ctrl.pubDetails().name }}
+        </div>
+        <div class="item item-text-wrap">
+          <ion-list ng-repeat="line in ctrl.pubDetails().address">
+            <ion-item class="address item">
+                {{ line }}
+            </ion-item>
+          </ion-list>
+        </div>
+        <div class="linktomap item item-divider">
+          Link to map will be here.
+        </div>
     </section>
+
+    <section class ='challenge'>
+      <div class="card">
+        <div class="item item-divider">
+          {{ ctrl.challengeDetails().name }}
+        </div>
+        <div class="item item-text-wrap">
+          {{ ctrl.challengeDetails().details }}
+        </div>
+      </div>
+    </section>
+
     <section>
         <div class="round-update">
           <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
@@ -20,5 +36,6 @@
           </button>
         </div>
     </section>
+
   </ion-content>
 </ion-view>
