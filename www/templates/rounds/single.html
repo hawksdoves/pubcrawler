@@ -1,6 +1,14 @@
 <ion-view view-title="Round">
   <ion-content>
 
+    <section>
+        <div class="round-update">
+          <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
+            Checkin
+          </button>
+        </div>
+    </section>
+
     <section class ='pub'>
       <div class="card">
         <div class="item item-divider">
@@ -17,7 +25,7 @@
           Link to map will be here.
         </div>
     </section>
-
+    
     <section class ='challenge'>
       <div class="card">
         <div class="item item-divider">
@@ -27,14 +35,6 @@
           {{ ctrl.challengeDetails().details }}
         </div>
       </div>
-    </section>
-
-    <section>
-        <div class="round-update">
-          <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
-            Checkin
-          </button>
-        </div>
     </section>
 
   </ion-content>
