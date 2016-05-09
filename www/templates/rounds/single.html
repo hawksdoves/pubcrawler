@@ -5,7 +5,14 @@
       <ion-item class="address">
         {{line}}
       </ion-item>
-   </ion-list>
+    </ion-list>
+    <section class='linktomap'>
+      Link to map will be here.
+    </section class="challenges">
+      <p>{{ctrl.challengeDetails().name}}</p>
+      <p>{{ctrl.challengeDetails().details}}</p>
+    <section class ='challenge'>
+    </section>
     <section>
         <div class="round-update">
           <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound( ctrl.roundId )">
