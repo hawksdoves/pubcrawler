@@ -3,7 +3,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
 
   self.createCrawl = function(crawlData) {
     return $http.post('http://localhost:3000/crawls', crawlData)
-    .success(function(data) {
+    .then(function(data) {
       console.log(data);
       return data;
     });
@@ -11,7 +11,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
 
   self.getCrawls = function() {
     return $http.get('http://localhost:3000/crawls')
-    .success(function(response) {
+    .then(function(response) {
       return response.data;
     });
   };
