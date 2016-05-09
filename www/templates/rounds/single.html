@@ -1,0 +1,15 @@
+<ion-view view-title="Round">
+  <ion-content>
+    <h1>Round</h1>
+    <section>
+        <div class="round-update">
+          <label class="item item-input">
+            <input id='round-id' type="text" placeholder="Round ID" ng-model="roundId">
+          </label>
+          <button class="button  button-block button-positive" id="round-update" type="button" ng-click="ctrl.updateRound({ id: roundId })">
+            Checkin
+          </button>
+        </div>
+    </section>
+  </ion-content>
+</ion-view>

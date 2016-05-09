@@ -14,12 +14,13 @@ describe('CrawlService', function(){
 
     httpBackend
     .whenPOST('/crawls', crawlData).respond({
-      name: 'NameOfNewCrawl'
+      status: 200
     });
-    
+
+
     CrawlService.createCrawl(crawlData)
       .then(function(response) {
-        expect(response.data).toEqual({ name: 'NameOfNewCrawl' });
+        expect(response.status).toEqual(200);
       });
   });
 });

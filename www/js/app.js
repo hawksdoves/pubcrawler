@@ -42,6 +42,16 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
         controller: 'CrawlsController as ctrl'
       }
     }
+  })
+
+  .state('app.roundSingle', {
+    url: '/rounds/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/rounds/single.html',
+        controller: 'RoundsController as ctrl'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/app/crawls');
