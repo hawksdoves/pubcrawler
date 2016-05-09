@@ -1,6 +1,11 @@
 <ion-view view-title="Round">
   <ion-content>
-    <h1>Round</h1>
+    <h2> {{ctrl.pubDetails().name}} </h2>
+    <ion-list ng-repeat="line in ctrl.pubDetails().address">
+      <ion-item class="address">
+        {{line}}
+      </ion-item>
+   </ion-list>
     <section>
         <div class="round-update">
           <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound( ctrl.roundId )">
