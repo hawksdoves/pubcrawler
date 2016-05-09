@@ -34,6 +34,17 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
     }
   })
 
+  .state('app.crawlSingle', {
+    url: '/crawls/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/crawls/single.html',
+        controller: 'CrawlSingleController as ctrl',
+        params: ['id']
+      }
+    }
+  })
+
   .state('app.crawls', {
     url: '/crawls',
     views: {
@@ -43,6 +54,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
       }
     }
   });
+
 
   $urlRouterProvider.otherwise('/app/crawls');
 });

@@ -1,0 +1,10 @@
+<ion-view view-title="Crawl containing list of rounds">
+  <ion-content>
+    <!-- <h1>{{ ctrl.paramId }}</h1> -->
+    <ion-list>
+      <ion-item ng-repeat="pub in ctrl.singleCrawl.pubs" ng-show="ctrl.singleCrawl.rounds" href="#/app/crawls/{{crawl.id}}">
+        {{pub.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
