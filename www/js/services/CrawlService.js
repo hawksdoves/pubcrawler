@@ -4,8 +4,6 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
   self.createCrawl = function(crawlData) {
     return $http.post('http://localhost:3000/crawls', crawlData)
     .success(function(data) {
-      console.log('data.message');
-      console.log(data.message);
       return data.message;
     });
   };
@@ -18,7 +16,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
   };
 
   self.getSingleCrawl = function(crawlID) {
-    return $http.get('http://localhost:3000/crawls/'+crawlID)
+    return $http.get('http://localhost:3000/crawls/' + crawlID)
     .then(function(response) {
       return response.data;
     });

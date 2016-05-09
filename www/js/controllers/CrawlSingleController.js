@@ -3,9 +3,7 @@ pubcrawlerApp.controller('CrawlSingleController', ['$state','CrawlService', func
   var self = this;
 
   CrawlService.getSingleCrawl($state.params.id).then(
-    function(data){
-      console.log(data);
+    function(data) {
       self.singleCrawl = data;
   });
-
 }]);
