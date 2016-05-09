@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20160506130812) do
     t.decimal  "latitude",   precision: 15, scale: 12
   end
 
+  create_table "pubs_on_crawls", force: :cascade do |t|
+    t.time    "checkin"
+    t.boolean "visible"
+    t.integer "pub_id"
+    t.integer "crawl_id"
+  end
+
+  add_index "pubs_on_crawls", ["crawl_id"], name: "index_pubs_on_crawls_on_crawl_id", using: :btree
+  add_index "pubs_on_crawls", ["pub_id"], name: "index_pubs_on_crawls_on_pub_id", using: :btree
+
   create_table "rounds", force: :cascade do |t|
     t.time    "checkin"
     t.boolean "visible"
