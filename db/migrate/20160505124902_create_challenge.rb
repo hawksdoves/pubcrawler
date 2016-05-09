@@ -3,7 +3,7 @@ class CreateChallenge < ActiveRecord::Migration
     create_table :challenges do |t|
       t.string :name
       t.text :details
-      t.time :time_allocation
+      t.integer :time_allocation
     end
   end
 end
