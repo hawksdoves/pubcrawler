@@ -33,7 +33,6 @@ class CrawlsController < ApplicationController
       crawl.rounds << rounds
 
       render :json => { :status => "success", :message => crawl }, :status => 200
-      # redirect_to crawl_path(crawl)
     else
       render 'new'
     end
