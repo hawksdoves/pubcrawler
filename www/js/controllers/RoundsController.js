@@ -1,4 +1,4 @@
-pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService', 'CrawlService', function($state, $window, RoundService, CrawlService) {
+pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService', 'CrawlService', '$cordovaGeolocation', '$scope', function($state, $window, RoundService, CrawlService, $cordovaGeolocation, $scope) {
 
   var self = this;
 
@@ -44,5 +44,24 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     }
   }
 
+  var options = {timeout: 10000, enableHighAccuracy: false};
 
+  self.showMap = function() {
+    $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var pubLatLng = new google.maps.LatLng(self.pubDetails().latitude, self.pubDetails().longitude);
+
+    var mapOptions = {
+      center: pubLatLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    }, function(error) {
+    console.log("Could not get location");
+    });
+  };
 }]);
