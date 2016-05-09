@@ -11,8 +11,30 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
+  self.pubDetails = function() {
+    return self.singleCrawlData.pubs.filter(findPub)[0];
+
+    function findPub(pub) {
+      return pub.id == self.roundDetails.pub_id;
+    }
+  };
+
+  self.challengeDetails = function() {
+    return self.singleCrawlData.challenges.filter(findChallenge)[0];
+
+    function findChallenge(challenge) {
+        return challenge.id == self.roundDetails.challenge_id;
+    }
+  };
+
   CrawlService.getSingleCrawl($state.params.crawl_id)
-    .then(roundInfo);
+    .then(saveAllCrawlData)
+      .then(roundInfo);
+
+  function saveAllCrawlData(data) {
+    self.singleCrawlData = data;
+    return self.singleCrawlData;
+  }
 
   function roundInfo(data) {
     self.roundDetails  = data.rounds.filter(findRound)[0];
@@ -21,4 +43,6 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       return round.id == self.roundId;
     }
   }
+
+
 }]);
