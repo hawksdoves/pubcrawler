@@ -55,7 +55,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
   })
 
   .state('app.roundSingle', {
-    url: '/rounds/:id',
+    url: '/crawls/rounds/:id',
     views: {
       'menuContent': {
         templateUrl: 'templates/rounds/single.html',
