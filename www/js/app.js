@@ -29,7 +29,6 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
       'menuContent': {
         templateUrl: 'templates/crawls/new.html',
         controller: 'CrawlsController as ctrl'
-
       }
     }
   })
@@ -64,7 +63,6 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
       }
     }
   });
-
 
   $urlRouterProvider.otherwise('/app/crawls');
 });
