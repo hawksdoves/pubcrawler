@@ -1,7 +1,7 @@
 <ion-view view-title="{{ ctrl.singleCrawl.name }}">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="round in ctrl.singleCrawl.rounds" ng-show="round.visible" href="#/app/crawls/rounds/{{ round.id }}">
+      <ion-item ng-repeat="round in ctrl.singleCrawl.rounds" ng-show="round.visible" href="#/app/crawls/{{ ctrl.singleCrawl.id }}/rounds/{{ round.id }}">
         {{ ctrl.pubName(round) }}
       </ion-item>
     </ion-list>
