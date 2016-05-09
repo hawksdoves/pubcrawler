@@ -28,7 +28,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
     views: {
       'menuContent': {
         templateUrl: 'templates/crawls/new.html',
-        controller: 'CrawlController as ctrl'
+        controller: 'CrawlsController as ctrl'
 
       }
     }
@@ -38,9 +38,11 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
     url: '/crawls',
     views: {
       'menuContent': {
-        templateUrl: 'templates/crawls/all.html'
+        templateUrl: 'templates/crawls/all.html',
+        controller: 'CrawlsController as ctrl'
       }
     }
   });
+
   $urlRouterProvider.otherwise('/app/crawls');
 });
