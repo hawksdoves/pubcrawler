@@ -1,21 +1,21 @@
 <ion-view view-title="Round">
   <ion-content>
-    <h2> {{ctrl.pubDetails().name}} </h2>
+    <h2> {{ ctrl.pubDetails().name }} </h2>
     <ion-list ng-repeat="line in ctrl.pubDetails().address">
       <ion-item class="address">
-        {{line}}
+        {{ line }}
       </ion-item>
     </ion-list>
     <section class='linktomap'>
       Link to map will be here.
     </section class="challenges">
-      <p>{{ctrl.challengeDetails().name}}</p>
-      <p>{{ctrl.challengeDetails().details}}</p>
+      <p>{{ ctrl.challengeDetails().name }}</p>
+      <p>{{ ctrl.challengeDetails().details }}</p>
     <section class ='challenge'>
     </section>
     <section>
         <div class="round-update">
-          <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound( ctrl.roundId )">
+          <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
             Checkin
           </button>
         </div>
