@@ -11,12 +11,22 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
+  // CrawlService.getSingleCrawl($state.params.crawl_id)
+  //   .then(roundInfo);
+
   CrawlService.getSingleCrawl($state.params.crawl_id)
-    .then(roundInfo);
+    .then(saveAllCrawlData)
+      .then(roundInfo);
+
+  function saveAllCrawlData(data){
+    self.singleCrawlData = data;
+    return self.singleCrawlData;
+  }
 
   function roundInfo(data) {
     self.roundDetails  = data.rounds.filter(findRound)[0];
 
+    console.log(self.roundDetails);
     function findRound(round) {
       return round.id == self.roundId;
     }
