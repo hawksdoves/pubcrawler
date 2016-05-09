@@ -1,20 +1,20 @@
-describe('CrawlService', function(){
+describe('CrawlService', function() {
   beforeEach(module('pubcrawlerApp'));
 
   var CrawlService, httpBackend;
 
   var crawlData = { name: 'NameOfNewCrawl', start_postcode: 'postcode' };
 
-  beforeEach( inject( function(_CrawlService_, $httpBackend) {
+  beforeEach( inject(function(_CrawlService_, $httpBackend) {
     CrawlService = _CrawlService_;
     httpBackend = $httpBackend;
   }));
 
-  describe('#createCrawl', function(){
+  describe('#createCrawl', function() {
     it('should post crawl to api', function() {
 
     httpBackend
-    .whenPOST('/crawls', crawlData).respond({
+      .whenPOST('/crawls', crawlData).respond({
       status: 200
     });
 
@@ -26,7 +26,7 @@ describe('CrawlService', function(){
     });
   });
 
-  describe('#getCrawls', function(){
+  describe('#getCrawls', function() {
 
     it('should get crawls from api', function() {
       httpBackend.expectGET('http://localhost:3000/crawls/').respond(crawlData);
