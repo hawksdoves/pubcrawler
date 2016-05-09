@@ -13,14 +13,15 @@ describe('CrawlService', function(){
   describe('#createCrawl', function(){
     it('should post crawl to api', function() {
 
-      httpBackend
-      .whenPOST('/crawls', crawlData).respond({
-        name: 'NameOfNewCrawl'
-      });
+    httpBackend
+    .whenPOST('/crawls', crawlData).respond({
+      status: 200
+    });
 
-      CrawlService.createCrawl(crawlData)
-        .then(function(response) {
-          expect(response.data).toEqual({ name: 'NameOfNewCrawl' });
+
+    CrawlService.createCrawl(crawlData)
+      .then(function(response) {
+        expect(response.status).toEqual(200);
         });
     });
   });
