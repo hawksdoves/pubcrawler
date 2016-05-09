@@ -10,7 +10,8 @@ describe('CrawlService', function(){
     httpBackend = $httpBackend;
   }));
 
-  it('should post crawl to api', function() {
+  describe('#createCrawl', function(){
+    it('should post crawl to api', function() {
 
     httpBackend
     .whenPOST('/crawls', crawlData).respond({
@@ -21,6 +22,18 @@ describe('CrawlService', function(){
     CrawlService.createCrawl(crawlData)
       .then(function(response) {
         expect(response.status).toEqual(200);
-      });
+        });
+    });
+  });
+
+  describe('#getCrawls', function(){
+
+    it('should get crawls from api', function() {
+      httpBackend.expectGET('http://localhost:3000/crawls/').respond(crawlData);
+      CrawlService.getCrawls()
+        .then(function(result) {
+          expect(result).toEqual(crawlData);
+        });
+    });
   });
 });
