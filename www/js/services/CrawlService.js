@@ -3,7 +3,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
 
   self.createCrawl = function(crawlData) {
     return $http.post('http://localhost:3000/crawls', crawlData)
-    .then(function(data) {
+    .success(function(data) {
       console.log(data);
       return data;
     });
