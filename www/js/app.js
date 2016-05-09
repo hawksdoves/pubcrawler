@@ -62,6 +62,16 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
         controller: 'RoundsController as ctrl'
       }
     }
+  })
+
+  .state('app.timer', {
+    url: '/timer',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/timer.html',
+        controller: 'TimerController as ctrl'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise('/app/crawls');

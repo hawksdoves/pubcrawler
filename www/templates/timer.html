@@ -1,0 +1,12 @@
+<ion-view view-title="Timer">
+  <ion-content>
+    <h1>Timer</h1>
+      <section>
+        <div class="timer">
+          {{ ctrl.counter }}
+          <button class="button  button-block button-positive" ng-click='ctrl.startTimer()'>Start</button>
+          <button class="button  button-block button-positive" ng-click='ctrl.stopTimer()'>Stop</button>
+        </div>
+      </section>
+  </ion-content>
+</ion-view>
