@@ -11,7 +11,7 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
-  self.pubDetails = function(){
+  self.pubDetails = function() {
     return self.singleCrawlData.pubs.filter(findPub)[0];
 
     function findPub(pub) {
@@ -19,20 +19,19 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     }
   };
 
-  self.challengeDetails = function(){
+  self.challengeDetails = function() {
     return self.singleCrawlData.challenges.filter(findChallenge)[0];
 
-    function findChallenge(challenge){
+    function findChallenge(challenge) {
         return challenge.id == self.roundDetails.challenge_id;
     }
   };
-
 
   CrawlService.getSingleCrawl($state.params.crawl_id)
     .then(saveAllCrawlData)
       .then(roundInfo);
 
-  function saveAllCrawlData(data){
+  function saveAllCrawlData(data) {
     self.singleCrawlData = data;
     return self.singleCrawlData;
   }
