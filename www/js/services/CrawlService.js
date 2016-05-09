@@ -15,8 +15,8 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
     });
   };
 
-  self.getSingleCrawl = function(crawlID) {
-    return $http.get('http://localhost:3000/crawls/' + crawlID)
+  self.getSingleCrawl = function(crawlId) {
+    return $http.get('http://localhost:3000/crawls/' + crawlId)
     .then(function(response) {
       return response.data;
     });

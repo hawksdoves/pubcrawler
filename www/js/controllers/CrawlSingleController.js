@@ -13,7 +13,7 @@ pubcrawlerApp.controller('CrawlSingleController', ['$state', 'CrawlService', fun
     return pubName;
 
     function _pubRoundMatcher(pub) {
-      if(pub.id == round.pub_id) {
+      if(pub.id === round.pub_id) {
         pubName = pub.name;
       }
     }
