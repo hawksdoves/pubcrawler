@@ -1,5 +1,5 @@
-every 2.minutes do
-    runner 'Notification.to_send'
+every 1.minutes do
+    runner 'Notification.send_messages'
 end
 
 # Use this file to easily define all of your cron jobs.
