@@ -28,7 +28,9 @@ gem 'yelp'
 
 gem 'json'
 gem 'rack-cors'
-
+gem 'dotenv-rails'
+gem 'twilio-ruby'
+gem 'whenever', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,7 +45,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'dotenv-rails'
   gem 'shoulda'
   gem 'capybara'
   gem 'rspec-collection_matchers'
