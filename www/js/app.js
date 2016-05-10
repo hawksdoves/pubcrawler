@@ -30,7 +30,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
       passwordUpdatePath:      '/auth/password',
       passwordResetSuccessUrl: window.location.href,
       emailSignInPath:         '/auth/sign_in',
-      storage:                 'cookies',
+      storage:                 'localStorage',
       forceValidateToken:      false,
       validateOnPageLoad:      true,
       proxyIf:                 function() { return false; },
@@ -60,7 +60,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
       },
       parseExpiry: function(headers) {
         // convert from UTC ruby (seconds) to UTC js (milliseconds)
-        return (parseInt(headers['expiry']) * 1000) || null;
+        return (parseInt(headers.expiry) * 1000) || null;
       },
       handleLoginResponse: function(response) {
         return response.data;
@@ -122,6 +122,16 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     views: {
       'menuContent': {
         templateUrl: 'templates/auth/sign-up.html',
+        controller: 'AuthController as ctrl'
+      }
+    }
+  })
+
+  .state('app.login', {
+    url: '/login',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/auth/login.html',
         controller: 'AuthController as ctrl'
       }
     }
