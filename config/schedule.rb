@@ -1,8 +1,6 @@
 every 2.minutes do
-  runner "Notification.to_send"
+    runner 'Notification.to_send'
 end
-
-
 
 # Use this file to easily define all of your cron jobs.
 #
