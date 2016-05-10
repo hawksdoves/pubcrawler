@@ -1,6 +1,23 @@
 <ion-view view-title="Round">
   <ion-content>
 
+    <!-- <h2> {{ ctrl.pubDetails().name }} </h2>
+    <ion-list ng-repeat="line in ctrl.pubDetails().address">
+      <ion-item class="address">
+        {{ line }}
+      </ion-item>
+    </ion-list>
+    <section class='linktomap'>
+      <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
+        Directions on map
+      </button>
+      <div id="map" data-tap-disabled="true"></div>
+    </section class="challenges">
+      <p>{{ ctrl.challengeDetails().name }}</p>
+      <p>{{ ctrl.challengeDetails().details }}</p>
+    <section class ='challenge'>
+    </section> -->
+
     <section>
         <div class="round-update">
           <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
@@ -22,8 +39,13 @@
           </ion-list>
         </div>
         <div class="linktomap item item-divider">
-          Link to map will be here.
+
         </div>
+
+        <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
+          Directions on map
+        </button>
+        <div id="map" data-tap-disabled="true"></div>
     </section>
 
     <section class ='challenge'>

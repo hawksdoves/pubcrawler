@@ -1,4 +1,4 @@
-var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic'])
+var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
