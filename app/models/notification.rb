@@ -3,13 +3,14 @@ class Notification < ActiveRecord::Base
   def self.send_message(client, tel_number)
     client.account.messages.create(
       from: ENV['TWILIO_NUMBER'],
-      to:   tel_number,
+      to:   '+447813881269',
       body: "Time is up, next pub!"
     )
   end
 
   def self.new_message(round)
-    self.create(number: round.crawl.number,
-                send_at_time: round.challenge.time_allocation)
+    time = Time.now + (round.challenge.time_allocation * 60)
+    self.create(number: round.crawl.mob_number,
+                send_at_time: time )
   end
 end

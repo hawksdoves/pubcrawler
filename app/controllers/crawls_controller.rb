@@ -41,6 +41,6 @@ class CrawlsController < ApplicationController
   private
 
   def crawl_params
-    params.require(:crawl).permit :name, :start_postcode
+    params.require(:crawl).permit :name, :start_postcode, :mob_number
   end
 end
