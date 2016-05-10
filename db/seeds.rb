@@ -10,12 +10,16 @@
 
 
   challenges = [[
-    name: "Glass of Wine",
-    details: "Order a glass of wine",
+    name: "Glasses of Wine",
+    details: "Each person must order alternating colours of wine.",
+    time_allocation: 30
+  ],[
+    name: "Greet a stranger",
+    details: "The person that manages to remain shaking a stangers hand for the longest, gets to make a rule.",
     time_allocation: 30
   ],[
     name: "Pint of Black",
-    details: "Order a pint of Black beer",
+    details: "Everybody orders a Guiness or Stout",
     time_allocation: 30
   ],[
     name: "Three sips",
@@ -23,11 +27,11 @@
     time_allocation: 30
   ],[
     name: "Find a friend",
-    details: "Take a photo with somebody who's name begins with the letter 'N'",
+    details: "Take a group photo with somebody who's name begins with the letter 'N'",
     time_allocation: 30
   ],[
     name: "Group Photo",
-    details: "Take a group picture with your drinks empty",
+    details: "Take a group picture with your drinks empty and post it with the hashtag '#pubcrawler'",
     time_allocation: 30
   ],[
     name: "Tequila",
@@ -39,7 +43,7 @@
     time_allocation: 30
   ],[
     name: "Chuck Norris",
-    details: "Ask the bartender for a Chuck Norris shot",
+    details: "Everybody gets a Chuck Norris shot. 1 part bourbon, 1 part tequila, tabasco on top.",
     time_allocation: 30
   ],[
     name: "Opposite handed",
@@ -75,7 +79,7 @@
     time_allocation: 30
   ],[
     name: "Random Item",
-    details: "Last person to finish their drink must carry a random item. Next pub one must ceremoneously pass on another item to the next person.",
+    details: "Last person to finish their drink must find and carry a random item with them for the rest of the evening.",
     time_allocation: 30
   ],[
     name: "Fancy cocktail round",
@@ -87,9 +91,17 @@
     time_allocation: 30
   ],[
     name: "Business Card",
-    details: "Get a stranger's business card within 3 minutes. Business card can then be used as a free pass for one future challenge.",
+    details: "Get a stranger's business card within 3 minutes, without saying business card. Business card can then be used as a free pass for one future challenge.",
+    time_allocation: 30
+  ],[
+    name: "In my pants",
+    details: "Finish every sentence off with 'in my pants' whilest at this pub.",
+    time_allocation: 30
+  ],[
+    name: "Cheesy Joke",
+    details: "Everybody tells a cheesy joke. Voted loser has to ask a stranger if they can lick their cheese.",
     time_allocation: 30
   ]]
 
 
-20.times { |n| Challenge.create(challenges[n]) }
+challenges.length.times { |n| Challenge.create(challenges[n]) }
