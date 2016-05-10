@@ -1,7 +1,15 @@
 class Notification < ActiveRecord::Base
 
-  def self.send_message(client, tel_number)
-    client.account.messages.create(
+  CLIENT = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
+
+
+  def self.to_send
+    self.all.each { | notification | send_message(notification.number) }
+  end
+
+
+  def send_message(tel_number)
+    CLIENT.account.messages.create(
       from: ENV['TWILIO_NUMBER'],
       to:   tel_number,
       body: "Time is up, next pub!"

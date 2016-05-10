@@ -1,5 +1,5 @@
-every 1.minutes do
-  runner "Notification.send_message"
+every 2.minutes do
+  runner "Notification.to_send"
 end
 
 
