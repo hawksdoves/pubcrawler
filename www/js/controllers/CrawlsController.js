@@ -1,4 +1,4 @@
-pubcrawlerApp.controller('CrawlsController', ['$state', 'CrawlService', function($state, CrawlService) {
+pubcrawlerApp.controller('CrawlsController', ['$window', '$state', 'CrawlService', function($window, $state, CrawlService) {
 
   var self = this;
 
@@ -12,6 +12,7 @@ pubcrawlerApp.controller('CrawlsController', ['$state', 'CrawlService', function
   self.createCrawl = function(crawlData) {
     CrawlService.createCrawl(crawlData)
       .then(function(crawl) {
+        $window.location.reload(true);
         $state.go('app.crawlSingle', { id: crawl.data.message.id });
       }
     );
