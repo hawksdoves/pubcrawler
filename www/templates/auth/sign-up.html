@@ -1,0 +1,18 @@
+<ionic-view>
+  <h1>Register</h1>
+  <form ng-submit="submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+    <div class="form-group">
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="text" ng-model="registrationForm.email" required="required" class="form-control"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="registrationForm.password">
+      </label>
+      <label class="item">
+        <button class="button button-block button-positive" type="submit">Log in</button>
+      </label>
+    </div>
+  </form>
+</ionic-view>
