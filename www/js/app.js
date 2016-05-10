@@ -137,7 +137,6 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     }
   })
 
-
   .state('app.roundSingle', {
     url: '/crawls/:crawl_id/rounds/:id',
     views: {
@@ -147,7 +146,6 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
         params: ['crawl_id', 'id']
       }
     }
-
   });
 
   $urlRouterProvider.otherwise('/app/crawls');

@@ -18,19 +18,19 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/sign-up">
-          Register
+        <ion-item menu-close ng-hide="user.id" href="#/app/sign-up">
+          Sign Up
         </ion-item>
-        <ion-item menu-close href="#/app/login">
+        <ion-item menu-close ng-hide="user.id" href="#/app/login">
           Login
         </ion-item>
-        <ion-item menu-close ng-controller="AuthController" ng-click="signOut()">
+        <ion-item menu-close ng-show="user.id" ng-controller="AuthController" ng-click="signOut()" href="#/app/login">
           Logout
         </ion-item>
-        <ion-item menu-close href="#/app/crawls">
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls">
           All Crawls
         </ion-item>
-        <ion-item menu-close href="#/app/crawls/new">
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls/new">
           New Crawl
         </ion-item>
       </ion-list>
