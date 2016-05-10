@@ -3,11 +3,14 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
   var self = this;
 
   self.roundId = $state.params.id;
+  self.crawlId = $state.params.crawl_id;
+
 
   self.updateRound = function(roundId) {
     RoundService.updateRound(roundId)
       .then(function(){
           $window.location.reload(true);
+          $state.go('app.crawlSingle', { id: self.crawlId });
       });
   };
 
