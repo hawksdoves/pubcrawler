@@ -11,13 +11,17 @@
         <label class="item item-input">
           <input id='crawl-start' type="text" placeholder="Starting Postcode" ng-model="crawlStart">
         </label>
+
+        <label class="item item-input">
+          <input id='crawl-tel-number' type="text" placeholder="Mobile number" ng-model="crawlTelNumber">
+        </label>
       </div>
 
-      <button class="button  button-block button-positive" id="crawl-create" type="button" ng-click="ctrl.createCrawl({ name: crawlName, start_postcode: crawlStart })">
+
+      <button class="button  button-block button-positive" id="crawl-create" type="button" ng-click="ctrl.createCrawl({ name: crawlName, start_postcode: crawlStart, mob_number: crawlTelNumber })">
         Create Crawl
       </button>
     </section>
-
 
   </ion-content>
 </ion-view>
