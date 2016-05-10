@@ -1,3 +1,5 @@
+$apiUrl = 'https://pub-crawler-olmesm.c9users.io';
+
 var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-token-auth'])
 
 .run(function($ionicPlatform) {
@@ -19,7 +21,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     // will extend the defaults using angular.extend
 
     $authProvider.configure({
-      apiUrl:                  'http://localhost:3000',
+      apiUrl:                  $apiUrl,
       tokenValidationPath:     '/auth/validate_token',
       signOutUrl:              '/auth/sign_out',
       emailRegistrationPath:   '/auth',
@@ -86,6 +88,24 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     controller: 'AppCtrl'
   })
 
+  .state('intro', {
+    url: '/intro',
+        templateUrl: 'templates/intro.html',
+        controller: 'AuthController as ctrl'
+  })
+
+  .state('signin', {
+    url: '/signin',
+        templateUrl: 'templates/signin.html',
+        controller: 'AuthController as ctrl'
+  })
+
+  .state('signup', {
+    url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'AuthController as ctrl'
+  })
+
   .state('app.newCrawl', {
     url: '/crawls/new',
     views: {
@@ -137,7 +157,6 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     }
   })
 
-
   .state('app.roundSingle', {
     url: '/crawls/:crawl_id/rounds/:id',
     views: {
@@ -147,8 +166,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
         params: ['crawl_id', 'id']
       }
     }
-
   });
 
-  $urlRouterProvider.otherwise('/app/crawls');
+  $urlRouterProvider.otherwise('/intro');
 });

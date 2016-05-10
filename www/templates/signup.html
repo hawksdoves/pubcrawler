@@ -1,0 +1,36 @@
+<ion-view view-title="Sign Up">
+  <ion-content>
+    <section class="center-content sign-up">
+      <h1 style="text-align: center">Sign Up</h1>
+
+      <div id="logo">
+        <img id="logo-image" src="img/beerLocationLogoSq.png" alt=""/>
+      </div>
+
+      <form ng-submit="ctrl.submitRegistration(registrationForm)" role="form" ng-init="registrationForm = {}">
+        <div class="form-group">
+
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="text" ng-model="registrationForm.email" required="required" class="form-control"/>
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="registrationForm.password" required="required" class="form-control"/>
+          </label>
+
+          <label class="item item-input">
+            <span class="input-label">Confirm Password</span>
+            <input type="password" ng-model="registrationForm.password_confirmation" required="required" class="form-control"/>
+          </label>
+
+
+            <button class="button button-block button-positive" type="submit">Sign Up</button>
+            <a href="#/signin" style="text-decoration:none"><button class="button button-block button-positive">Sign In</button></a>
+
+        </div>
+      </form>
+    </section>
+  </ion-content>
+</ion-view>

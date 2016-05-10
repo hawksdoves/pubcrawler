@@ -7,3 +7,54 @@
     width: 500px;
     height: 400px;
 }*/
+
+
+#logo-image {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+}
+
+
+.button.button-positive {
+  background-color: #EC4643;
+}
+
+
+.button.button-positive.activated {
+  background-color: #BD3836;
+}
+
+.center-content {
+  width: 100%;
+  max-height: 500px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.sign-up {
+  max-height: 595px;
+}
+
+
+ion-content {
+  background-image: url("/img/background5.jpg");
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.item {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.item-content {
+  text-align: center;
+}
