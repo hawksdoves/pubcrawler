@@ -17,6 +17,7 @@
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
+    "ng-token-auth": "0.0.29",
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
