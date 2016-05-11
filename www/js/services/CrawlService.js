@@ -24,7 +24,9 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
       return response.data;
 
       function getPubDetails(round){
-        round.pub_details = response.data.pubs.filter(findPub)[0];
+        round.pubDetails = response.data.pubs.filter(findPub)[0];
+        console.log('**********');
+        console.log(round);
         return round;
 
         function findPub(pub) {
@@ -33,7 +35,7 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
       }
 
       function getChallengeDetails(round) {
-        round.challenge_details = response.data.challenges.filter(findChallenge)[0];
+        round.challengeDetails = response.data.challenges.filter(findChallenge)[0];
         return round;
 
         function findChallenge(challenge) {

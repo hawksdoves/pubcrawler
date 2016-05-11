@@ -1,27 +1,10 @@
 <ion-view view-title="Round">
   <ion-content>
 
-    <!-- <h2> {{ ctrl.pubDetails().name }} </h2>
-    <ion-list ng-repeat="line in ctrl.pubDetails().address">
-      <ion-item class="address">
-        {{ line }}
-      </ion-item>
-    </ion-list>
-    <section class='linktomap'>
-      <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
-        Directions on map
-      </button>
-      <div id="map" data-tap-disabled="true"></div>
-    </section class="challenges">
-      <p>{{ ctrl.challengeDetails().name }}</p>
-      <p>{{ ctrl.challengeDetails().details }}</p>
-    <section class ='challenge'>
-    </section> -->
-
     <section>
         <div class="round-update">
           <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
-            Accept Challenge
+            Checkin
           </button>
         </div>
     </section>
@@ -29,10 +12,10 @@
     <section class ='pub'>
       <div class="card">
         <div class="item item-divider">
-          {{ ctrl.pubDetails().name }}
+          {{ ctrl.roundDetails.pubDetails.name }}
         </div>
         <div class="item item-text-wrap">
-          <ion-list ng-repeat="line in ctrl.pubDetails().address">
+          <ion-list ng-repeat="line in ctrl.roundDetails.pubDetails.address">
             <ion-item class="address item">
                 {{ line }}
             </ion-item>
@@ -51,10 +34,10 @@
     <section class ='challenge'>
       <div class="card">
         <div class="item item-divider">
-          {{ ctrl.challengeDetails().name }}
+          {{ ctrl.roundDetails.challengeDetails.name }}
         </div>
         <div class="item item-text-wrap">
-          {{ ctrl.challengeDetails().details }}
+          {{ ctrl.roundDetails.challengeDetails.details }}
         </div>
       </div>
     </section>
