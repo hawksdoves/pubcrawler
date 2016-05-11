@@ -1,3 +1,5 @@
+$apiUrl = 'https://pub-crawler-olmesm.c9users.io';
+
 var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-token-auth'])
 
 .run(function($ionicPlatform) {
@@ -19,7 +21,7 @@ var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-to
     // will extend the defaults using angular.extend
 
     $authProvider.configure({
-      apiUrl:                  'http://localhost:3000',
+      apiUrl:                  $apiUrl,
       tokenValidationPath:     '/auth/validate_token',
       signOutUrl:              '/auth/sign_out',
       emailRegistrationPath:   '/auth',
