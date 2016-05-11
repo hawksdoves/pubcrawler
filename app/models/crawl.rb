@@ -1,4 +1,5 @@
 class Crawl < ActiveRecord::Base
+  belongs_to :user
   has_many :rounds
   has_many :pubs, through: :rounds
   has_many :challenges, through: :rounds
