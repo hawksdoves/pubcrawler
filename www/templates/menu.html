@@ -14,17 +14,23 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Menu</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-hide="user.id" href="#/app/sign-up">
+          Sign Up
+        </ion-item>
+        <ion-item menu-close ng-hide="user.id" href="#/app/login">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/crawls">
+        <ion-item menu-close ng-show="user.id" ng-controller="AuthController" ng-click="signOut()" href="#/app/login">
+          Logout
+        </ion-item>
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls">
           All Crawls
         </ion-item>
-        <ion-item menu-close href="#/app/crawls/new">
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls/new">
           New Crawl
         </ion-item>
       </ion-list>
