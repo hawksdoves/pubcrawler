@@ -8,11 +8,4 @@ pubcrawlerApp.service('RoundService', ['$http', function($http) {
     });
   };
 
-  self.revealNextRound = function(crawlId){
-    return $http.patch($apiUrl + '/crawls/' + crawlId)
-    .success(function(data) {
-      return data;
-    });
-  };
-
 }]);

@@ -13,18 +13,24 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
-  self.updateNextRound = function(crawlId){
-    RoundService.revealNextRound(crawlId)
+  self.updateNextRound = function(){
+    nextRound = nextRoundToReveal();
+    RoundService.updateRound(nextRound)
       .then(function(){
         $window.location.reload(true);
         $state.go('app.crawlSingle', { id: self.crawlId });
       });
-    // notVisibleRounds = self.allRoundsOfCrawl.filter(!isVisible);
-    // notVisibleRounds[0].visible = true
+
   };
 
-  function isVisible(round){
-    return round.visible===true;
+  function nextRoundToReveal(){
+    notVisibleRounds = self.allRoundsOfCrawl.filter(isNotVisible);
+    notVisibleRounds[0].visible = true;
+    return notVisibleRounds[0].id;
+  }
+
+  function isNotVisible(round){
+    return round.visible===false;
   }
 
   CrawlService.getSingleCrawl($state.params.crawl_id)
