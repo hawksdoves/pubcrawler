@@ -7,8 +7,7 @@ class Round < ActiveRecord::Base
 		Round.update(id, checkin: Time.now)
 	end
 
-	def self.reveal_next id
-		# need to be for the same id - not next. business vs visual
-		Round.update(id.to_i+1, visible: true)
+	def self.reveal id
+		Round.update(id.to_i, visible: true)
 	end
 end
