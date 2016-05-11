@@ -5,7 +5,6 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
   self.roundId = $state.params.id;
   self.crawlId = $state.params.crawl_id;
 
-
   self.updateRound = function(roundId) {
     RoundService.updateRound(roundId)
       .then(function(){
@@ -14,30 +13,8 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
-  self.pubDetails = function() {
-    return self.singleCrawlData.pubs.filter(findPub)[0];
-
-    function findPub(pub) {
-      return pub.id == self.roundDetails.pub_id;
-    }
-  };
-
-  self.challengeDetails = function() {
-    return self.singleCrawlData.challenges.filter(findChallenge)[0];
-
-    function findChallenge(challenge) {
-        return challenge.id == self.roundDetails.challenge_id;
-    }
-  };
-
   CrawlService.getSingleCrawl($state.params.crawl_id)
-    .then(saveAllCrawlData)
-      .then(roundInfo);
-
-  function saveAllCrawlData(data) {
-    self.singleCrawlData = data;
-    return self.singleCrawlData;
-  }
+    .then(roundInfo);
 
   function roundInfo(data) {
     self.roundDetails  = data.rounds.filter(findRound)[0];
@@ -53,7 +30,7 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     $cordovaGeolocation.getCurrentPosition(options).then(function(position){
       document.getElementById('map').style.minHeight = '400px';
       var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      var pubLatLng = new google.maps.LatLng(self.pubDetails().latitude, self.pubDetails().longitude);
+      var pubLatLng = new google.maps.LatLng(self.roundDetails.pubDetails.latitude, self.roundDetails.pubDetails.longitude);
 
       var mapOptions = {
         center: pubLatLng,
