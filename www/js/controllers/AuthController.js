@@ -4,7 +4,7 @@ pubcrawlerApp.controller('AuthController', ['$window', '$state', '$auth', functi
   self.submitRegistration = function(registrationForm) {
     $auth.submitRegistration(registrationForm)
       .then(function(resp) {
-        $window.location.reload(true);
+        // $window.location.reload(true);
         $state.go('app.crawls');
       })
       .catch(function(resp) {
@@ -16,7 +16,7 @@ pubcrawlerApp.controller('AuthController', ['$window', '$state', '$auth', functi
     $auth.submitLogin(loginForm)
       .then(function(resp) {
         $state.go('app.crawls');
-        $window.location.reload(true);
+        // $window.location.reload(true);
       })
       .catch(function(resp) {
         console.warn(resp);
