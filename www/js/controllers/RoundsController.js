@@ -13,10 +13,25 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
+  self.updateNextRound = function(crawlId){
+    RoundService.revealNextRound(crawlId)
+      .then(function(){
+        $window.location.reload(true);
+        $state.go('app.crawlSingle', { id: self.crawlId });
+      });
+    // notVisibleRounds = self.allRoundsOfCrawl.filter(!isVisible);
+    // notVisibleRounds[0].visible = true
+  };
+
+  function isVisible(round){
+    return round.visible===true;
+  }
+
   CrawlService.getSingleCrawl($state.params.crawl_id)
     .then(roundInfo);
 
   function roundInfo(data) {
+    self.allRoundsOfCrawl = data.rounds;
     self.roundDetails  = data.rounds.filter(findRound)[0];
 
     function findRound(round) {
