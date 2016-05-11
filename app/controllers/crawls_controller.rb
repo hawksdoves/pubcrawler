@@ -14,10 +14,6 @@ class CrawlsController < ApplicationController
     render json: @crawl, include: [:pubs, :rounds, :challenges]
   end
 
-  def new
-    @crawl = Crawl.new
-  end
-
   def create
     if current_user
       crawl = Crawl.new crawl_params
@@ -38,7 +34,7 @@ class CrawlsController < ApplicationController
 
         render :json => { :status => "success", :message => crawl }, :status => 200
       else
-        render 'new'
+        render :json => { :errors => crawl.errors.full_messages }
       end
 
     end
