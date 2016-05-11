@@ -3,9 +3,6 @@ class CrawlsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    p 'index'
-    p params
-    p current_user.email
     @crawls = Crawl.all
     render json: @crawls
   end
@@ -20,8 +17,6 @@ class CrawlsController < ApplicationController
   end
 
   def create
-    p 'create'
-    p params
     crawl = Crawl.new crawl_params
     if crawl.save
       pubs = Crawl.get_pubs(crawl.start_postcode)
