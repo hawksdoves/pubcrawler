@@ -3,8 +3,6 @@ describe('DirectionsService', function(){
 
   var DirectionsService, httpBackend;
 
-  var updateData = { id: 1 };
-
   beforeEach( inject( function(_DirectionsService_, $httpBackend) {
     DirectionsService = _DirectionsService_;
     httpBackend = $httpBackend;

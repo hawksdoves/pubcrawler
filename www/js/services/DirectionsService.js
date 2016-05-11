@@ -29,7 +29,7 @@ pubcrawlerApp.service('DirectionsService', ['$http', '$cordovaGeolocation', func
 
         var currentLocationMarker = new google.maps.Marker({
             map: scope.map,
-            animation: google.maps.Animation.DROP,
+            animation: google.maps.Animation.BOUNCE,
             position: latLng,
             icon: 'img/happy.png'
         });
