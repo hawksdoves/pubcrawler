@@ -3,8 +3,8 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
 
   self.createCrawl = function(crawlData) {
     return $http.post($apiUrl + '/crawls', crawlData)
-    .success(function(data) {
-      return data.message;
+    .then(function(response) {
+      return response.data.message;
     });
   };
 
