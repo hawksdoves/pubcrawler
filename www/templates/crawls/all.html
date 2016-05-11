@@ -5,11 +5,16 @@
         <div class="item item-divider">
           All Crawls
         </div>
-        <div class="item list-text-wrap">
+        <div class="item list-text-wrap" ng-hide="ctrl.noCrawls()">
           <ion-item ng-repeat="crawl in ctrl.crawls" href="#/app/crawls/{{crawl.id}}">
               {{ crawl.name }}
             <br>
               {{ crawl.start_postcode }}
+          </ion-item>
+        </div>
+        <div class="noCrawls" ng-show="ctrl.noCrawls()">
+          <ion-item href="#/app/crawls/new">
+           No crawls yet. Create a new crawl
           </ion-item>
         </div>
       </div>
