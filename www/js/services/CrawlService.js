@@ -25,8 +25,6 @@ pubcrawlerApp.service('CrawlService', ['$http', function($http) {
 
       function getPubDetails(round){
         round.pubDetails = response.data.pubs.filter(findPub)[0];
-        console.log('**********');
-        console.log(round);
         return round;
 
         function findPub(pub) {
