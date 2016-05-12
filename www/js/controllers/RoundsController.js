@@ -45,6 +45,14 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     }
   }
 
+  self.isChallengeCompleted = function(round) {
+    return self.allRoundsOfCrawl.filter(isVisible).pop() !== round;
+  }
+
+  function isVisible(round){
+    return round.visible===true;
+  }
+
   self.showMap = function() {
     DirectionsService.showMap(self.roundDetails.pubDetails, $scope);
   };
