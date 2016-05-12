@@ -1,15 +1,28 @@
 <ion-view view-title="New Crawl">
   <ion-content>
-    <h1>New Crawl</h1>
+
     <section>
-      <div class="list">
+      <div class="item item-divider">
+        New Crawl
+      </div>
+
+      <div id="logo">
+        <img id="logo-image" src="img/beerLocationLogoSq.png" alt=""/>
+      </div>
+
+    </section>
+
+    <section>
+      <div class="form-group">
 
         <label class="item item-input">
-          <input id='crawl-name' type="text" placeholder="Crawl name" ng-model="crawlName">
+          <span class="input-label">Crawl Name</span>
+          <input type="text" ng-model="crawlName" required="required" class="form-control"/>
         </label>
 
         <label class="item item-input">
-          <input id='crawl-start' type="text" placeholder="Starting Postcode" ng-model="crawlStart">
+          <span class="input-label">Starting Postcode</span>
+          <input type="text" ng-model="crawlStart" required="required" class="form-control"/>
         </label>
       </div>
 
