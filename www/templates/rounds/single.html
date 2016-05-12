@@ -49,8 +49,8 @@
         </div>
       </div>
       <div class="round-update">
-        <button class="button button-block button-positive" id="round-update" ng-hide="ctrl.isChallengeCompleted(ctrl.roundDetails)" type="button" ng-click="ctrl.updateNextRound()">
-          Challenge accepted
+        <button class="button button-block button-positive" id="round-update" ng-hide="ctrl.isNotCurrentOrLastRound(ctrl.roundDetails)" type="button" ng-click="ctrl.updateNextRound()">
+          Next Pub
         </button>
       </div>
     </section>
