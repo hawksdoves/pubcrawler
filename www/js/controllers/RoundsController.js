@@ -5,6 +5,18 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
   self.roundId = $state.params.id;
   self.crawlId = $state.params.crawl_id;
 
+  CrawlService.getSingleCrawl($state.params.crawl_id)
+    .then(roundInfo);
+
+  function roundInfo(data) {
+    self.allRoundsOfCrawl = data.rounds;
+    self.roundDetails  = data.rounds.filter(findRound)[0];
+
+    function findRound(round) {
+      return round.id == self.roundId;
+    }
+  }
+
   self.updateRound = function(roundId) {
     RoundService.updateRound(roundId)
       .then(function(){
@@ -33,16 +45,26 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     return round.visible===false;
   }
 
-  CrawlService.getSingleCrawl($state.params.crawl_id)
-    .then(roundInfo);
+  function isVisible(round) {
+    return round.visible===true;
+  }
 
-  function roundInfo(data) {
-    self.allRoundsOfCrawl = data.rounds;
-    self.roundDetails  = data.rounds.filter(findRound)[0];
+  
+  self.isNotCurrentOrLastRound = function(round) {
+    return isNotCurrentRound(round) || isLastRound(round)
+  } 
 
-    function findRound(round) {
-      return round.id == self.roundId;
-    }
+  function isNotCurrentRound(round) {
+    return allVisibleRounds().pop() !== round;
+  }
+
+
+  function isLastRound(round) {
+    return self.allRoundsOfCrawl.length === allVisibleRounds().length;
+  }
+
+  function allVisibleRounds() {
+    return self.allRoundsOfCrawl.filter(isVisible)
   }
 
   self.showMap = function() {

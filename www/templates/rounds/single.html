@@ -23,6 +23,7 @@
           </button>
 
           <div id="map" data-tap-disabled="true"></div>
+
         </div>
       </div>
     </section>
@@ -51,8 +52,8 @@
 
     <section class="round-buttons">
       <div class="round-update">
-        <button class="button button-block button-positive" id="round-update" type="button" ng-click="ctrl.updateNextRound()">
-          Challenge completed
+        <button class="button button-block button-positive" id="round-update" ng-hide="ctrl.isNotCurrentOrLastRound(ctrl.roundDetails)" type="button" ng-click="ctrl.updateNextRound()">
+          Next Pub
         </button>
       </div>
     </section>
