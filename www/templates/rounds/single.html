@@ -9,7 +9,10 @@
         </div>
     </section>
 
-    <section class ='pub'>
+    <section class ='pub' style="padding-top: 20px">
+      <div class="item" style="text-align: center">
+       <span style="font-weight: bold; font-size: 180%">Pub</span>
+      </div>
       <div class="card">
         <div class="item item-divider">
           {{ ctrl.roundDetails.pubDetails.name }}
@@ -24,14 +27,18 @@
         <div class="linktomap item item-divider">
 
         </div>
-
-        <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
-          Directions on map
-        </button>
+        <div style="text-align: center">
+          <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
+            Directions on map
+          </button>
+        </div>
         <div id="map" data-tap-disabled="true"></div>
     </section>
 
     <section class ='challenge'>
+      <div class="item" style="text-align: center">
+        <span style="font-weight: bold; font-size: 180%">Challenge</span>
+      </div>
       <div class="card">
         <div class="item item-divider">
           {{ ctrl.roundDetails.challengeDetails.name }}
