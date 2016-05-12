@@ -1,19 +1,15 @@
 <ion-view view-title="{{ ctrl.singleCrawl.name }}">
   <ion-content>
     <ion-list>
-      <div class="list">
-
-        <div class="item item-divider">
-          Your Pub Crawl
-        </div>
-
-        <div class="item list-text-wrap">
-        <ion-item ng-repeat="round in ctrl.singleCrawl.rounds" ng-show="round.visible" href="#/app/crawls/{{ ctrl.singleCrawl.id }}/rounds/{{ round.id }}">
-          {{ ctrl.pubName(round) }}
-        </ion-item>
-        </div>
-
+      <div class="item item-divider" style="background-color: rgba(255, 255, 255, 0.7)">
+        Your Pub Crawl
       </div>
+
+      <div class="item list-text-wrap" style="background-color: rgba(255, 255, 255, 0)">
+      <ion-item ng-repeat="round in ctrl.singleCrawl.rounds" ng-show="round.visible" href="#/app/crawls/{{ ctrl.singleCrawl.id }}/rounds/{{ round.id }}">
+        {{ ctrl.pubName(round) }}
+      </ion-item>
+      </div>      
     </ion-list>
   </ion-content>
 </ion-view>
