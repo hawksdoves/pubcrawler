@@ -25,7 +25,7 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
-  self.updateNextRound = function(){
+  self.updateNextRound = function() {
     nextRound = nextRoundToReveal();
     RoundService.updateRound(nextRound)
       .then(function(){
