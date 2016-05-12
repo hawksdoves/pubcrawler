@@ -13,7 +13,7 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
       });
   };
 
-  self.updateNextRound = function(){
+  self.updateNextRound = function() {
     nextRound = nextRoundToReveal();
     RoundService.updateRound(nextRound)
       .then(function(){
@@ -23,13 +23,13 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
 
   };
 
-  function nextRoundToReveal(){
+  function nextRoundToReveal() {
     notVisibleRounds = self.allRoundsOfCrawl.filter(isNotVisible);
     notVisibleRounds[0].visible = true;
     return notVisibleRounds[0].id;
   }
 
-  function isNotVisible(round){
+  function isNotVisible(round) {
     return round.visible===false;
   }
 
