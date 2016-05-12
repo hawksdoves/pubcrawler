@@ -1,4 +1,4 @@
-$apiUrl = 'http://localhost:3000';
+$apiUrl = 'https://pub-crawler-olmesm.c9users.io';
 
 var pubcrawlerApp = angular.module('pubcrawlerApp', ['ionic','ngCordova', 'ng-token-auth'])
 
