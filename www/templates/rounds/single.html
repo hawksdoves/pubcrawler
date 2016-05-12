@@ -1,18 +1,10 @@
 <ion-view view-title="Round">
   <ion-content>
-
     <section>
-        <div class="round-update">
-          <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
-            Checkin
-          </button>
-        </div>
-    </section>
-
-    <section class ='pub' style="padding-top: 20px">
-      <div class="item" style="text-align: center">
-       <span style="font-weight: bold; font-size: 180%">Pub</span>
+      <div class="item item-divider">
+        Pub
       </div>
+
       <div class="card">
         <div class="item item-divider">
           {{ ctrl.roundDetails.pubDetails.name }}
@@ -24,20 +16,28 @@
             </ion-item>
           </ion-list>
         </div>
-        <div class="linktomap item item-divider">
 
-        </div>
         <div style="text-align: center">
-          <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
+          <button class="button button-block button-positive" type="button" ng-click="ctrl.showMap()">
             Directions on map
           </button>
+
           <div id="map" data-tap-disabled="true"></div>
         </div>
+      </div>
     </section>
 
-    <section class ='challenge'>
-      <div class="item" style="text-align: center">
-        <span style="font-weight: bold; font-size: 180%">Challenge</span>
+    <section class="round-buttons">
+      <div class="round-update">
+        <button class="button  button-block button-positive" ng-hide="ctrl.roundDetails.checkin" id="round-update" type="button" ng-click="ctrl.updateRound(ctrl.roundId)">
+          Checkin
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <div class="item item-divider">
+        Challenge
       </div>
       <div class="card">
         <div class="item item-divider">
@@ -47,12 +47,14 @@
           {{ ctrl.roundDetails.challengeDetails.details }}
         </div>
       </div>
+    </section>
+
+    <section class="round-buttons">
       <div class="round-update">
         <button class="button button-block button-positive" id="round-update" type="button" ng-click="ctrl.updateNextRound()">
           Challenge completed
         </button>
       </div>
     </section>
-
   </ion-content>
 </ion-view>

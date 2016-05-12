@@ -18,6 +18,12 @@
     </ion-header-bar>
     <ion-content class="side-menu">
       <ion-list>
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls">
+          All Crawls
+        </ion-item>
+        <ion-item menu-close ng-show="user.id" href="#/app/crawls/new">
+          New Crawl
+        </ion-item>
         <ion-item menu-close ng-hide="user.id" href="#/app/sign-up">
           Sign Up
         </ion-item>
@@ -26,12 +32,6 @@
         </ion-item>
         <ion-item menu-close ng-show="user.id" ng-controller="AuthController" ng-click="signOut()" href="#/intro">
           Logout
-        </ion-item>
-        <ion-item menu-close ng-show="user.id" href="#/app/crawls">
-          All Crawls
-        </ion-item>
-        <ion-item menu-close ng-show="user.id" href="#/app/crawls/new">
-          New Crawl
         </ion-item>
       </ion-list>
     </ion-content>

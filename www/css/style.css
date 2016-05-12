@@ -13,7 +13,6 @@
 
 }
 
-
 .button.button-positive {
   background-color: #EC4643;
 }
@@ -53,4 +52,31 @@ ion-content {
   text-align: center;
   color: #f8f8f8;
   text-shadow: 2px 2px 3px #000;
+}
+
+.no-background {
+  background: none;
+}
+
+.item-title {
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.item-subtitle {
+  font-size: 70%;
+}
+
+.item-divider {
+  text-align: center;
+  font-size: 110%;
+}
+
+.address {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.round-buttons {
+  padding-bottom: 10px;
 }
