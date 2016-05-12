@@ -30,8 +30,8 @@
         <div style="text-align: center">
           <button class="button button-positive" type="button" ng-click="ctrl.showMap()">
             Directions on map
-          </button>
-          <div id="map" data-tap-disabled="true"></div>
+          </button>        
+        <div id="map" data-tap-disabled="true"></div>
         </div>
     </section>
 
@@ -48,8 +48,8 @@
         </div>
       </div>
       <div class="round-update">
-        <button class="button button-block button-positive" id="round-update" type="button" ng-click="ctrl.updateNextRound()">
-          Challenge completed
+        <button class="button button-block button-positive" id="round-update" ng-hide="ctrl.isNotCurrentOrLastRound(ctrl.roundDetails)" type="button" ng-click="ctrl.updateNextRound()">
+          Next Pub
         </button>
       </div>
     </section>
