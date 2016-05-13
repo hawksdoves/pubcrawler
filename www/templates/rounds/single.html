@@ -36,7 +36,7 @@
       </div>
     </section>
 
-    <section>
+    <section ng-show="ctrl.roundDetails.checkin">
       <div class="item item-divider">
         Challenge
       </div>
@@ -50,7 +50,7 @@
       </div>
     </section>
 
-    <section class="round-buttons">
+    <section class="round-buttons" ng-show="ctrl.roundDetails.checkin">
       <div class="round-update">
         <button class="button button-block button-positive" id="round-update" ng-hide="ctrl.isNotCurrentOrLastRound(ctrl.roundDetails)" type="button" ng-click="ctrl.updateNextRound()">
           Next Pub
