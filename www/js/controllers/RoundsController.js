@@ -21,7 +21,6 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     RoundService.updateRound(roundId)
       .then(function(){
           $window.location.reload(true);
-          $state.go('app.crawlSingle', { id: self.crawlId });
       });
   };
 
@@ -49,22 +48,21 @@ pubcrawlerApp.controller('RoundsController', ['$state', '$window', 'RoundService
     return round.visible===true;
   }
 
-  
+
   self.isNotCurrentOrLastRound = function(round) {
-    return isNotCurrentRound(round) || isLastRound(round)
-  } 
+    return isNotCurrentRound(round) || isLastRound(round);
+  } ;
 
   function isNotCurrentRound(round) {
     return allVisibleRounds().pop() !== round;
   }
-
 
   function isLastRound(round) {
     return self.allRoundsOfCrawl.length === allVisibleRounds().length;
   }
 
   function allVisibleRounds() {
-    return self.allRoundsOfCrawl.filter(isVisible)
+    return self.allRoundsOfCrawl.filter(isVisible);
   }
 
   self.showMap = function() {

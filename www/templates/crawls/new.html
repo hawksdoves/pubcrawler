@@ -1,13 +1,13 @@
-<ion-view view-title="New Crawl">
+<ion-view view-title="New Stumble">
   <ion-content>
 
     <section>
       <div class="item item-divider">
-        New Crawl
+        New Stumble
       </div>
 
       <div id="logo">
-        <img id="logo-image" src="img/beerLocationLogoSq.png" alt=""/>
+        <img id="logo-image" src="img/stumbler.png" alt=""/>
       </div>
 
     </section>
@@ -16,7 +16,7 @@
       <div class="form-group">
 
         <label class="item item-input">
-          <span class="input-label">Crawl Name</span>
+          <span class="input-label">Stumble Name</span>
           <input type="text" ng-model="crawlName" required="required" class="form-control"/>
         </label>
 
@@ -27,7 +27,7 @@
       </div>
 
       <button class="button  button-block button-positive" id="crawl-create" type="button" ng-click="ctrl.createCrawl({ name: crawlName, start_postcode: crawlStart })">
-        Create Crawl
+        Create Stumble
       </button>
     </section>
 

@@ -14,15 +14,18 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Menu</h1>
+      <!-- <h1 class="title">Stumbler</h1> -->
+      <div id="logo-small">
+        <img id="logo-image-small" src="img/stumbler-blk.png" alt=""/>
+      </div>
     </ion-header-bar>
     <ion-content class="side-menu">
       <ion-list>
         <ion-item menu-close ng-show="user.id" href="#/app/crawls">
-          All Crawls
+          All Stumbles
         </ion-item>
         <ion-item menu-close ng-show="user.id" href="#/app/crawls/new">
-          New Crawl
+          New Stumble
         </ion-item>
         <ion-item menu-close ng-hide="user.id" href="#/app/sign-up">
           Sign Up

@@ -1,22 +1,28 @@
-/* Empty. Add your own CSS if you like */
 .scroll {
     height: 100%;
 }
 
 #logo-image {
-  max-width: 150px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-top: 25px;
   margin-bottom: 40px;
+  -webkit-filter: drop-shadow(1px 1px 1px #2b2b2b);
+  filter: drop-shadow(1px 1px 2px #2b2b2b);
+}
 
+#logo-image-small {
+  max-width: 59%;
+  margin-left: 15%;
+  margin-top: -1%;
+  margin-right: auto;
 }
 
 .button.button-positive {
   background-color: #EC4643;
 }
-
 
 .button.button-positive.activated {
   background-color: #BD3836;
@@ -50,6 +56,7 @@ ion-content {
 
 .page-title {
   text-align: center;
+  display: none;
   color: #f8f8f8;
   text-shadow: 2px 2px 3px #000;
 }
